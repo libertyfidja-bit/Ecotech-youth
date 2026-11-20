@@ -6,562 +6,461 @@
 <title>EcoTech Youth — Rwanda's Green Economy Platform</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-:root {
-  --green-deep: #1a4a2e; --green-mid: #2d7a4f; --green-fresh: #4caf78;
-  --green-light: #c8f0d8; --earth: #8b5e3c; --earth-light: #f5ede4;
-  --sky: #e8f4fd; --ink: #0f1f17; --ink-soft: #3d5247;
-  --white: #ffffff; --grey-line: #e2ebe6; --grey-soft: #f4f8f5;
-  --font-body: 'Space Grotesk', sans-serif; --font-display: 'Lora', serif;
-  color-scheme: light;
+:root{
+  --gd:#1a4a2e;--gm:#2d7a4f;--gf:#4caf78;--gl:#c8f0d8;
+  --ea:#8b5e3c;--el:#f5ede4;--sk:#e8f4fd;
+  --ink:#0f1f17;--is:#3d5247;--wh:#ffffff;
+  --gl2:#e2ebe6;--gs:#f4f8f5;
+  --fb:'Space Grotesk',sans-serif;--fd:'Lora',serif;
+  color-scheme:light;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --green-deep:#c8f0d8;--green-mid:#4caf78;--green-fresh:#2d7a4f;
-    --green-light:#1a3a28;--earth:#d4a07a;--earth-light:#2a1f18;
-    --sky:#0f1e2a;--ink:#e8f4ee;--ink-soft:#a8c4b4;
-    --white:#111f17;--grey-line:#1e3028;--grey-soft:#141f1a;
-    color-scheme:dark;
-  }
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:var(--font-body);background:var(--white);color:var(--ink);font-size:16px;line-height:1.6;}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --gd:#c8f0d8;--gm:#4caf78;--gf:#2d7a4f;--gl:#1a3a28;
+  --ea:#d4a07a;--el:#2a1f18;--sk:#0f1e2a;
+  --ink:#e8f4ee;--is:#a8c4b4;--wh:#111f17;--gl2:#1e3028;--gs:#141f1a;
+  color-scheme:dark;
+}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--wh);color:var(--ink);font-size:16px;line-height:1.6}
 
 /* NAV */
-nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--grey-line);padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:64px;}
-.nav-logo{font-family:var(--font-display);font-size:1.2rem;font-weight:600;color:var(--green-deep);text-decoration:none;display:flex;align-items:center;gap:0.4rem;cursor:pointer;}
-.nav-logo span{color:var(--green-fresh);}
-.nav-links{display:flex;gap:0.15rem;list-style:none;flex-wrap:wrap;}
-.nav-links button{background:none;border:none;font-family:var(--font-body);font-size:0.85rem;font-weight:500;color:var(--ink-soft);padding:0.45rem 0.85rem;border-radius:8px;cursor:pointer;transition:background .15s,color .15s;}
-.nav-links button:hover,.nav-links button.active{background:var(--green-light);color:var(--green-deep);}
-.nav-cta{background:var(--green-mid)!important;color:var(--white)!important;border-radius:8px!important;}
-.nav-cta:hover{background:var(--green-deep)!important;}
-.nav-hamburger{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--ink);}
-@media(max-width:768px){.nav-links{display:none;}.nav-hamburger{display:block;}}
-.nav-links.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--grey-line);padding:1rem;z-index:99;gap:0.25rem;}
+nav{position:sticky;top:0;z-index:100;background:var(--wh);border-bottom:1px solid var(--gl2);padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--fd);font-size:1.2rem;font-weight:600;color:var(--gd);cursor:pointer;display:flex;align-items:center;gap:.4rem}
+.logo span{color:var(--gf)}
+.nav-links{display:flex;gap:.15rem;list-style:none;flex-wrap:wrap}
+.nb{background:none;border:none;font-family:var(--fb);font-size:.85rem;font-weight:500;color:var(--is);padding:.45rem .85rem;border-radius:8px;cursor:pointer;transition:background .15s,color .15s}
+.nb:hover,.nb.active{background:var(--gl);color:var(--gd)}
+.nb.cta{background:var(--gm)!important;color:var(--wh)!important}
+.nb.cta:hover{background:var(--gd)!important}
+.ham{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--ink)}
+@media(max-width:768px){.nav-links{display:none}.ham{display:block}}
+.nav-links.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--wh);border-bottom:1px solid var(--gl2);padding:1rem;z-index:99;gap:.25rem}
 
 /* PAGES */
-.page{display:none;}.page.active{display:block;}
+.page{display:none}.page.active{display:block}
 
 /* HERO */
-.hero{background:linear-gradient(135deg,var(--green-deep) 0%,var(--green-mid) 100%);color:var(--white);padding:5rem 2rem 4rem;text-align:center;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");}
-.hero-badge{display:inline-block;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);padding:.35rem 1rem;border-radius:100px;font-size:.8rem;font-weight:500;margin-bottom:1.5rem;}
-.hero h1{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);font-weight:600;line-height:1.2;max-width:700px;margin:0 auto 1.25rem;}
-.hero p{font-size:1.05rem;opacity:.85;max-width:540px;margin:0 auto 2.5rem;}
-.hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
-.btn-primary{background:var(--white);color:var(--green-deep);font-family:var(--font-body);font-weight:600;font-size:.95rem;padding:.8rem 2rem;border-radius:10px;border:none;cursor:pointer;transition:transform .15s,box-shadow .15s;}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2);}
-.btn-outline{background:transparent;color:var(--white);font-family:var(--font-body);font-weight:500;font-size:.95rem;padding:.8rem 2rem;border-radius:10px;border:1.5px solid rgba(255,255,255,.5);cursor:pointer;transition:background .15s;}
-.btn-outline:hover{background:rgba(255,255,255,.1);}
-.hero-stats{display:flex;justify-content:center;gap:3rem;margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,.15);flex-wrap:wrap;}
-.stat{text-align:center;}
-.stat-number{font-family:var(--font-display);font-size:2rem;font-weight:600;display:block;}
-.stat-label{font-size:.8rem;opacity:.7;}
+.hero{background:linear-gradient(135deg,var(--gd),var(--gm));color:#fff;padding:5rem 2rem 4rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E")}
+.hbadge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);padding:.35rem 1rem;border-radius:100px;font-size:.8rem;margin-bottom:1.5rem}
+.hero h1{font-family:var(--fd);font-size:clamp(2rem,5vw,3.5rem);font-weight:600;line-height:1.2;max-width:700px;margin:0 auto 1.25rem}
+.hero p{font-size:1.05rem;opacity:.85;max-width:540px;margin:0 auto 2.5rem}
+.hacts{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btnp{background:#fff;color:var(--gd);font-family:var(--fb);font-weight:600;font-size:.95rem;padding:.8rem 2rem;border-radius:10px;border:none;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btnp:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.btno{background:transparent;color:#fff;font-family:var(--fb);font-weight:500;font-size:.95rem;padding:.8rem 2rem;border-radius:10px;border:1.5px solid rgba(255,255,255,.5);cursor:pointer;transition:background .15s}
+.btno:hover{background:rgba(255,255,255,.1)}
+.hstats{display:flex;justify-content:center;gap:3rem;margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,.15);flex-wrap:wrap}
+.stat{text-align:center}
+.snum{font-family:var(--fd);font-size:2rem;font-weight:600;display:block}
+.slbl{font-size:.8rem;opacity:.7}
 
-/* SHARED SECTION */
-section{padding:4rem 2rem;}
-.section-inner{max-width:1100px;margin:0 auto;}
-.section-label{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--green-mid);margin-bottom:.75rem;}
-.section-title{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:600;color:var(--ink);margin-bottom:1rem;line-height:1.3;}
-.section-sub{color:var(--ink-soft);font-size:1rem;max-width:540px;margin-bottom:2.5rem;}
+/* SECTIONS */
+section{padding:4rem 2rem}
+.si{max-width:1100px;margin:0 auto}
+.slabel{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--gm);margin-bottom:.75rem}
+.stitle{font-family:var(--fd);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:600;color:var(--ink);margin-bottom:1rem;line-height:1.3}
+.ssub{color:var(--is);font-size:1rem;max-width:540px;margin-bottom:2.5rem}
 
 /* CARDS */
-.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;}
-.card{background:var(--white);border:1px solid var(--grey-line);border-radius:14px;padding:1.5rem;transition:box-shadow .2s,transform .2s;}
-.card:hover{box-shadow:0 8px 32px rgba(0,0,0,.08);transform:translateY(-3px);}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem}
+.card{background:var(--wh);border:1px solid var(--gl2);border-radius:14px;padding:1.5rem;transition:box-shadow .2s,transform .2s;cursor:default}
+.card:hover{box-shadow:0 8px 32px rgba(0,0,0,.08);transform:translateY(-3px)}
 
-/* JOB BOARD */
-.job-filters{display:flex;gap:.75rem;margin-bottom:2rem;flex-wrap:wrap;}
-.filter-btn{background:var(--grey-soft);border:1.5px solid var(--grey-line);border-radius:100px;padding:.4rem 1.1rem;font-family:var(--font-body);font-size:.85rem;font-weight:500;color:var(--ink-soft);cursor:pointer;transition:all .15s;}
-.filter-btn:hover,.filter-btn.active{background:var(--green-light);border-color:var(--green-fresh);color:var(--green-deep);}
-.job-card{display:flex;flex-direction:column;gap:.75rem;}
-.job-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;}
-.job-org{display:flex;align-items:center;gap:.75rem;}
-.org-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
-.org-name{font-weight:600;font-size:.9rem;color:var(--ink);}
-.org-loc{font-size:.8rem;color:var(--ink-soft);}
-.job-badge{font-size:.72rem;font-weight:600;padding:.3rem .75rem;border-radius:100px;white-space:nowrap;}
-.badge-green{background:var(--green-light);color:var(--green-deep);}
-.badge-earth{background:var(--earth-light);color:var(--earth);}
-.badge-sky{background:var(--sky);color:#1a5a7a;}
-.job-title{font-weight:600;font-size:1.05rem;color:var(--ink);}
-.job-desc{font-size:.88rem;color:var(--ink-soft);line-height:1.5;}
-.job-tags{display:flex;gap:.5rem;flex-wrap:wrap;}
-.tag{font-size:.75rem;padding:.25rem .65rem;background:var(--grey-soft);border-radius:100px;color:var(--ink-soft);}
-.job-footer{display:flex;justify-content:space-between;align-items:center;padding-top:.75rem;border-top:1px solid var(--grey-line);}
-.job-pay{font-weight:600;font-size:.9rem;color:var(--green-mid);}
-.job-deadline{font-size:.8rem;color:var(--ink-soft);}
-.apply-btn{background:var(--green-mid);color:var(--white);border:none;border-radius:8px;padding:.5rem 1.25rem;font-family:var(--font-body);font-size:.85rem;font-weight:600;cursor:pointer;transition:background .15s;}
-.apply-btn:hover{background:var(--green-deep);}
+/* BUTTONS */
+.btn-g{background:var(--gm);color:#fff;border:none;border-radius:8px;padding:.5rem 1.25rem;font-family:var(--fb);font-size:.85rem;font-weight:600;cursor:pointer;transition:background .15s}
+.btn-g:hover{background:var(--gd)}
+.btn-gl{background:var(--gl);color:var(--gd);border:none;border-radius:8px;padding:.55rem 1.25rem;font-family:var(--fb);font-size:.85rem;font-weight:600;cursor:pointer;transition:background .15s;align-self:flex-start}
+.btn-gl:hover{background:var(--gf);color:#fff}
+.btn-ea{background:var(--ea);color:#fff;border:none;border-radius:8px;padding:.5rem 1.25rem;font-family:var(--fb);font-size:.85rem;font-weight:600;cursor:pointer;transition:background .15s}
+.btn-sky{background:#4a90d9;color:#fff;border:none;border-radius:8px;padding:.5rem 1.25rem;font-family:var(--fb);font-size:.85rem;font-weight:600;cursor:pointer;transition:background .15s}
 
-/* LEARNING */
-.course-card{display:flex;flex-direction:column;gap:1rem;}
-.course-thumb{height:140px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:3rem;}
-.progress-bar{height:5px;background:var(--grey-line);border-radius:100px;overflow:hidden;margin-top:.5rem;}
-.progress-fill{height:100%;background:var(--green-fresh);border-radius:100px;}
-.course-meta{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:var(--ink-soft);}
-.course-title{font-weight:600;font-size:1rem;color:var(--ink);}
-.course-desc{font-size:.88rem;color:var(--ink-soft);}
-.start-btn{background:var(--green-light);color:var(--green-deep);border:none;border-radius:8px;padding:.55rem 1.25rem;font-family:var(--font-body);font-size:.85rem;font-weight:600;cursor:pointer;transition:background .15s;align-self:flex-start;}
-.start-btn:hover{background:var(--green-fresh);color:var(--white);}
+/* JOB */
+.filters{display:flex;gap:.75rem;margin-bottom:2rem;flex-wrap:wrap}
+.fbtn{background:var(--gs);border:1.5px solid var(--gl2);border-radius:100px;padding:.4rem 1.1rem;font-family:var(--fb);font-size:.85rem;font-weight:500;color:var(--is);cursor:pointer;transition:all .15s}
+.fbtn:hover,.fbtn.active{background:var(--gl);border-color:var(--gf);color:var(--gd)}
+.jcard{display:flex;flex-direction:column;gap:.75rem}
+.jtop{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.jorg{display:flex;align-items:center;gap:.75rem}
+.oicon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.oname{font-weight:600;font-size:.9rem}
+.oloc{font-size:.8rem;color:var(--is)}
+.jbadge{font-size:.72rem;font-weight:600;padding:.3rem .75rem;border-radius:100px;white-space:nowrap}
+.bg{background:var(--gl);color:var(--gd)}
+.be{background:var(--el);color:var(--ea)}
+.bs{background:var(--sk);color:#1a5a7a}
+.jtitle{font-weight:600;font-size:1.05rem}
+.jdesc{font-size:.88rem;color:var(--is);line-height:1.5}
+.jtags{display:flex;gap:.5rem;flex-wrap:wrap}
+.tag{font-size:.75rem;padding:.25rem .65rem;background:var(--gs);border-radius:100px;color:var(--is)}
+.jfoot{display:flex;justify-content:space-between;align-items:center;padding-top:.75rem;border-top:1px solid var(--gl2)}
+.jpay{font-weight:600;font-size:.9rem;color:var(--gm)}
+.jdl{font-size:.8rem;color:var(--is)}
+
+/* COURSES */
+.ccard{display:flex;flex-direction:column;gap:1rem}
+.cthumb{height:140px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:3rem}
+.pbar{height:5px;background:var(--gl2);border-radius:100px;overflow:hidden;margin-top:.5rem}
+.pfill{height:100%;background:var(--gf);border-radius:100px}
+.cmeta{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:var(--is)}
+.ctitle{font-weight:600;font-size:1rem}
+.cdesc{font-size:.88rem;color:var(--is)}
 
 /* COMMUNITY */
-.community-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;}
-@media(max-width:700px){.community-grid{grid-template-columns:1fr;}}
-.project-card{display:flex;flex-direction:column;gap:.75rem;}
-.project-header{display:flex;align-items:center;gap:.75rem;}
-.project-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;}
-.project-title{font-weight:600;font-size:1rem;}
-.project-author{font-size:.8rem;color:var(--ink-soft);}
-.project-desc{font-size:.88rem;color:var(--ink-soft);line-height:1.5;}
-.project-funding{display:flex;justify-content:space-between;align-items:center;padding-top:.75rem;border-top:1px solid var(--grey-line);}
-.funding-bar{flex:1;height:6px;background:var(--grey-line);border-radius:100px;overflow:hidden;margin:0 1rem;}
-.funding-fill{height:100%;background:linear-gradient(90deg,var(--green-fresh),var(--green-mid));border-radius:100px;}
-.funding-label{font-size:.78rem;color:var(--ink-soft);white-space:nowrap;}
-.funding-pct{font-weight:700;font-size:.85rem;color:var(--green-mid);}
-.support-btn{background:var(--green-mid);color:var(--white);border:none;border-radius:8px;padding:.5rem 1.1rem;font-family:var(--font-body);font-size:.82rem;font-weight:600;cursor:pointer;transition:background .15s;}
-.support-btn:hover{background:var(--green-deep);}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+@media(max-width:700px){.cgrid{grid-template-columns:1fr}}
+.pcard{display:flex;flex-direction:column;gap:.75rem}
+.phead{display:flex;align-items:center;gap:.75rem}
+.picon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+.ptitle{font-weight:600;font-size:1rem}
+.pauthor{font-size:.8rem;color:var(--is)}
+.pdesc{font-size:.88rem;color:var(--is);line-height:1.5}
+.pfund{display:flex;justify-content:space-between;align-items:center;padding-top:.75rem;border-top:1px solid var(--gl2)}
+.fbar{flex:1;height:6px;background:var(--gl2);border-radius:100px;overflow:hidden;margin:0 1rem}
+.ffill{height:100%;background:linear-gradient(90deg,var(--gf),var(--gm));border-radius:100px}
+.fpct{font-weight:700;font-size:.85rem;color:var(--gm)}
+.flbl{font-size:.78rem;color:var(--is);white-space:nowrap}
 
 /* IMPACT */
-.impact-strip{background:var(--green-deep);color:var(--white);padding:3rem 2rem;}
-.impact-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;text-align:center;}
-.impact-num{font-family:var(--font-display);font-size:2.5rem;font-weight:600;color:var(--green-fresh);display:block;}
-.impact-label{font-size:.85rem;opacity:.8;}
+.istrip{background:var(--gd);color:#fff;padding:3rem 2rem}
+.igrid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;text-align:center}
+.inum{font-family:var(--fd);font-size:2.5rem;font-weight:600;color:var(--gf);display:block}
+.ilbl{font-size:.85rem;opacity:.8}
 
-/* PITCH DECK */
-.pitch-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;gap:1rem;}
-.pitch-counter{font-size:.9rem;color:var(--ink-soft);font-weight:500;}
-.slide-btn{background:var(--grey-soft);border:1.5px solid var(--grey-line);border-radius:8px;padding:.5rem 1.2rem;font-family:var(--font-body);font-size:.9rem;font-weight:600;color:var(--ink);cursor:pointer;transition:all .15s;}
-.slide-btn:hover:not(:disabled){background:var(--green-light);border-color:var(--green-fresh);color:var(--green-deep);}
-.slide-btn:disabled{opacity:.35;cursor:not-allowed;}
-.slide-dots{display:flex;gap:.5rem;}
-.dot{width:8px;height:8px;border-radius:50%;background:var(--grey-line);cursor:pointer;transition:background .15s;}
-.dot.active{background:var(--green-mid);}
-.pitch-slide{display:none;background:linear-gradient(135deg,var(--green-deep),var(--green-mid));border-radius:20px;padding:3rem 2.5rem;color:var(--white);min-height:380px;position:relative;overflow:hidden;}
-.pitch-slide.active{display:flex;flex-direction:column;justify-content:center;}
-.pitch-slide::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:rgba(255,255,255,.05);border-radius:50%;}
-.pitch-slide::after{content:'';position:absolute;bottom:-60px;left:-30px;width:160px;height:160px;background:rgba(255,255,255,.04);border-radius:50%;}
-.slide-num{font-size:.75rem;opacity:.6;margin-bottom:1rem;font-weight:500;}
-.slide-title{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:600;margin-bottom:1.25rem;line-height:1.2;}
-.slide-body{font-size:.95rem;opacity:.88;line-height:1.7;max-width:620px;}
-.slide-body ul{padding-left:1.25rem;margin-top:.5rem;}
-.slide-body li{margin-bottom:.4rem;}
-.slide-emoji{font-size:3rem;margin-bottom:1rem;}
-.slide-cols{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem;}
-.slide-col{background:rgba(255,255,255,.1);border-radius:12px;padding:1rem;}
-.slide-col-title{font-weight:600;font-size:.9rem;margin-bottom:.5rem;}
-.slide-col-body{font-size:.82rem;opacity:.85;line-height:1.6;}
-.timer-bar{position:absolute;bottom:0;left:0;height:3px;background:var(--green-fresh);transition:width .3s;}
+/* PITCH */
+.pnav{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;gap:1rem}
+.pctr{font-size:.9rem;color:var(--is);font-weight:500}
+.sbtn{background:var(--gs);border:1.5px solid var(--gl2);border-radius:8px;padding:.5rem 1.2rem;font-family:var(--fb);font-size:.9rem;font-weight:600;color:var(--ink);cursor:pointer;transition:all .15s}
+.sbtn:hover:not(:disabled){background:var(--gl);border-color:var(--gf);color:var(--gd)}
+.sbtn:disabled{opacity:.35;cursor:not-allowed}
+.dots{display:flex;gap:.5rem}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--gl2);cursor:pointer;transition:background .15s}
+.dot.active{background:var(--gm)}
+.slide{display:none;background:linear-gradient(135deg,var(--gd),var(--gm));border-radius:20px;padding:3rem 2.5rem;color:#fff;min-height:380px;position:relative;overflow:hidden;flex-direction:column;justify-content:center}
+.slide.active{display:flex}
+.slide::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:rgba(255,255,255,.05);border-radius:50%}
+.snum{font-size:.75rem;opacity:.6;margin-bottom:1rem;font-weight:500}
+.semoji{font-size:3rem;margin-bottom:1rem}
+.stitle2{font-family:var(--fd);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:600;margin-bottom:1.25rem;line-height:1.2}
+.sbody{font-size:.95rem;opacity:.88;line-height:1.7;max-width:620px}
+.sbody ul{padding-left:1.25rem;margin-top:.5rem}
+.sbody li{margin-bottom:.4rem}
+.scols{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}
+.scol{background:rgba(255,255,255,.1);border-radius:12px;padding:1rem}
+.scol-t{font-weight:600;font-size:.9rem;margin-bottom:.5rem}
+.scol-b{font-size:.82rem;opacity:.85;line-height:1.6}
+.tbar{position:absolute;bottom:0;left:0;height:3px;background:var(--gf);transition:width .3s}
 
-/* ENTERPRISE MODEL */
-.biz-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.25rem;margin-bottom:2rem;}
-.biz-card{border-radius:14px;padding:1.5rem;border:1px solid var(--grey-line);}
-.biz-icon{font-size:1.8rem;margin-bottom:.75rem;}
-.biz-title{font-weight:600;font-size:1rem;margin-bottom:.5rem;color:var(--ink);}
-.biz-desc{font-size:.85rem;color:var(--ink-soft);line-height:1.6;}
-.revenue-row{display:flex;align-items:center;gap:1rem;padding:.85rem 1.2rem;background:var(--grey-soft);border-radius:10px;margin-bottom:.6rem;}
-.rev-icon{font-size:1.3rem;}
-.rev-name{font-weight:600;font-size:.9rem;flex:1;}
-.rev-amount{font-weight:700;font-size:.95rem;color:var(--green-mid);}
-.rev-bar-wrap{flex:2;height:8px;background:var(--grey-line);border-radius:100px;overflow:hidden;}
-.rev-bar{height:100%;background:linear-gradient(90deg,var(--green-fresh),var(--green-mid));border-radius:100px;}
+/* ENTERPRISE */
+.bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.25rem;margin-bottom:2rem}
+.bcard{border-radius:14px;padding:1.5rem;border:1px solid var(--gl2)}
+.bicon{font-size:1.8rem;margin-bottom:.75rem}
+.btitle{font-weight:600;font-size:1rem;margin-bottom:.5rem}
+.bdesc{font-size:.85rem;color:var(--is);line-height:1.6}
+.rrow{display:flex;align-items:center;gap:1rem;padding:.85rem 1.2rem;background:var(--gs);border-radius:10px;margin-bottom:.6rem}
+.ricon{font-size:1.3rem}
+.rname{font-weight:600;font-size:.9rem;flex:1}
+.ramount{font-weight:700;font-size:.95rem;color:var(--gm)}
+.rbarw{flex:2;height:8px;background:var(--gl2);border-radius:100px;overflow:hidden}
+.rbar{height:100%;background:linear-gradient(90deg,var(--gf),var(--gm));border-radius:100px}
 
-/* SUBMIT PROJECT */
-.submit-form{max-width:680px;margin:0 auto;}
-.form-group{margin-bottom:1.25rem;}
-.form-label{display:block;font-weight:600;font-size:.88rem;margin-bottom:.5rem;color:var(--ink);}
-.form-input,.form-textarea,.form-select{width:100%;border:1.5px solid var(--grey-line);border-radius:10px;padding:.75rem 1rem;font-family:var(--font-body);font-size:.9rem;color:var(--ink);background:var(--white);outline:none;transition:border-color .15s;}
-.form-input:focus,.form-textarea:focus,.form-select:focus{border-color:var(--green-fresh);}
-.form-textarea{resize:vertical;min-height:120px;}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-@media(max-width:600px){.form-row{grid-template-columns:1fr;}}
-.form-submit{background:var(--green-mid);color:var(--white);border:none;border-radius:12px;padding:.9rem 2.5rem;font-family:var(--font-body);font-size:1rem;font-weight:600;cursor:pointer;transition:background .15s;width:100%;margin-top:.5rem;}
-.form-submit:hover{background:var(--green-deep);}
-.form-note{font-size:.8rem;color:var(--ink-soft);margin-top:.4rem;}
-.submit-success{text-align:center;padding:3rem 1rem;display:none;}
-.submit-success .big-check{font-size:4rem;display:block;margin-bottom:1rem;}
-.submit-success h3{font-family:var(--font-display);font-size:1.5rem;margin-bottom:.75rem;}
-.submit-success p{color:var(--ink-soft);max-width:420px;margin:0 auto;}
-.char-counter{font-size:.75rem;color:var(--ink-soft);text-align:right;margin-top:.25rem;}
+/* SUBMIT */
+.sform{max-width:680px;margin:0 auto}
+.fg{margin-bottom:1.25rem}
+.fl{display:block;font-weight:600;font-size:.88rem;margin-bottom:.5rem}
+.fi,.ft,.fsel{width:100%;border:1.5px solid var(--gl2);border-radius:10px;padding:.75rem 1rem;font-family:var(--fb);font-size:.9rem;color:var(--ink);background:var(--wh);outline:none;transition:border-color .15s}
+.fi:focus,.ft:focus,.fsel:focus{border-color:var(--gf)}
+.ft{resize:vertical;min-height:120px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.frow{grid-template-columns:1fr}}
+.fsub{background:var(--gm);color:#fff;border:none;border-radius:12px;padding:.9rem 2.5rem;font-family:var(--fb);font-size:1rem;font-weight:600;cursor:pointer;transition:background .15s;width:100%;margin-top:.5rem}
+.fsub:hover{background:var(--gd)}
+.cc{font-size:.75rem;color:var(--is);text-align:right;margin-top:.25rem}
+.succ{text-align:center;padding:3rem 1rem;display:none}
+.succ .ck{font-size:4rem;display:block;margin-bottom:1rem}
+.succ h3{font-family:var(--fd);font-size:1.5rem;margin-bottom:.75rem}
+.succ p{color:var(--is);max-width:420px;margin:0 auto}
 
 /* MODAL */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;align-items:center;justify-content:center;padding:1rem;}
-.modal-overlay.open{display:flex;}
-.modal{background:var(--white);border-radius:16px;padding:2rem;max-width:480px;width:100%;position:relative;}
-.modal-close{position:absolute;top:1rem;right:1rem;background:var(--grey-soft);border:none;border-radius:8px;width:32px;height:32px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);}
-.modal h3{font-family:var(--font-display);font-size:1.3rem;margin-bottom:.5rem;color:var(--ink);}
-.modal p{font-size:.9rem;color:var(--ink-soft);margin-bottom:1.5rem;}
-.modal-input{width:100%;border:1.5px solid var(--grey-line);border-radius:10px;padding:.75rem 1rem;font-family:var(--font-body);font-size:.9rem;color:var(--ink);background:var(--white);margin-bottom:1rem;outline:none;transition:border-color .15s;}
-.modal-input:focus{border-color:var(--green-fresh);}
-.modal-submit{width:100%;background:var(--green-mid);color:var(--white);border:none;border-radius:10px;padding:.85rem;font-family:var(--font-body);font-size:1rem;font-weight:600;cursor:pointer;transition:background .15s;}
-.modal-submit:hover{background:var(--green-deep);}
-.success-msg{display:none;text-align:center;padding:1rem 0;}
-.success-msg .check{font-size:3rem;display:block;margin-bottom:.75rem;}
-.success-msg h4{font-family:var(--font-display);font-size:1.2rem;margin-bottom:.5rem;}
-.success-msg p{color:var(--ink-soft);font-size:.9rem;}
+.moverlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;align-items:center;justify-content:center;padding:1rem}
+.moverlay.open{display:flex}
+.modal{background:var(--wh);border-radius:16px;padding:2rem;max-width:480px;width:100%;position:relative}
+.mclose{position:absolute;top:1rem;right:1rem;background:var(--gs);border:none;border-radius:8px;width:32px;height:32px;cursor:pointer;font-size:1rem;color:var(--is)}
+.modal h3{font-family:var(--fd);font-size:1.3rem;margin-bottom:.5rem}
+.modal p{font-size:.9rem;color:var(--is);margin-bottom:1.5rem}
+.mi{width:100%;border:1.5px solid var(--gl2);border-radius:10px;padding:.75rem 1rem;font-family:var(--fb);font-size:.9rem;background:var(--wh);margin-bottom:1rem;outline:none;transition:border-color .15s;color:var(--ink)}
+.mi:focus{border-color:var(--gf)}
+.msub{width:100%;background:var(--gm);color:#fff;border:none;border-radius:10px;padding:.85rem;font-family:var(--fb);font-size:1rem;font-weight:600;cursor:pointer}
+.msub:hover{background:var(--gd)}
+.msucc{display:none;text-align:center;padding:1rem 0}
+.msucc .ck{font-size:3rem;display:block;margin-bottom:.75rem}
+.msucc h4{font-family:var(--fd);font-size:1.2rem;margin-bottom:.5rem}
 
 /* TOAST */
-.toast{position:fixed;bottom:2rem;right:2rem;background:var(--green-deep);color:var(--white);padding:.85rem 1.5rem;border-radius:10px;font-size:.9rem;font-weight:500;z-index:300;transform:translateY(100px);opacity:0;transition:transform .3s,opacity .3s;max-width:320px;}
-.toast.show{transform:translateY(0);opacity:1;}
+.toast{position:fixed;bottom:2rem;right:2rem;background:var(--gd);color:#fff;padding:.85rem 1.5rem;border-radius:10px;font-size:.9rem;font-weight:500;z-index:300;transform:translateY(100px);opacity:0;transition:transform .3s,opacity .3s;max-width:320px}
+.toast.show{transform:translateY(0);opacity:1}
 
 /* FOOTER */
-footer{background:var(--grey-soft);border-top:1px solid var(--grey-line);padding:2.5rem 2rem;text-align:center;}
-.footer-links{display:flex;justify-content:center;gap:2rem;margin-bottom:1rem;flex-wrap:wrap;}
-.footer-links button{background:none;border:none;font-family:var(--font-body);font-size:.85rem;color:var(--ink-soft);cursor:pointer;transition:color .15s;}
-.footer-links button:hover{color:var(--green-mid);}
-.footer-copy{font-size:.82rem;color:var(--ink-soft);}
+footer{background:var(--gs);border-top:1px solid var(--gl2);padding:2.5rem 2rem;text-align:center}
+.flinks{display:flex;justify-content:center;gap:1.5rem;margin-bottom:1rem;flex-wrap:wrap}
+.flinks button{background:none;border:none;font-family:var(--fb);font-size:.85rem;color:var(--is);cursor:pointer}
+.flinks button:hover{color:var(--gm)}
+.fcopy{font-size:.82rem;color:var(--is)}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <div class="nav-logo" data-fn="showPage('home')">🌿 <span>EcoTech</span>Youth</div>
-  <button class="nav-hamburger" data-fn="toggleMobileNav()">☰</button>
-  <ul class="nav-links" id="main-nav">
-    <li><button data-fn="showPage('home')" id="nav-home" class="active">Home</button></li>
-    <li><button data-fn="showPage('jobs')" id="nav-jobs">Green Jobs</button></li>
-    <li><button data-fn="showPage('learn')" id="nav-learn">Learn</button></li>
-    <li><button data-fn="showPage('community')" id="nav-community">Community</button></li>
-    <li><button data-fn="showPage('pitch')" id="nav-pitch">Pitch Deck</button></li>
-    <li><button data-fn="showPage('enterprise')" id="nav-enterprise">Business Model</button></li>
-    <li><button data-fn="showPage('submit')" id="nav-submit">Submit Project</button></li>
-    <li><button data-fn="openModal()" class="nav-cta">Join Free</button></li>
+  <div class="logo" id="logo">🌿 <span>EcoTech</span>Youth</div>
+  <button class="ham" id="ham">☰</button>
+  <ul class="nav-links" id="navlinks">
+    <li><button class="nb active" id="n-home">Home</button></li>
+    <li><button class="nb" id="n-jobs">Green Jobs</button></li>
+    <li><button class="nb" id="n-learn">Learn</button></li>
+    <li><button class="nb" id="n-community">Community</button></li>
+    <li><button class="nb" id="n-pitch">Pitch Deck</button></li>
+    <li><button class="nb" id="n-enterprise">Business Model</button></li>
+    <li><button class="nb" id="n-submit">Submit Project</button></li>
+    <li><button class="nb cta" id="n-join">Join Free</button></li>
   </ul>
 </nav>
 
-<!-- ═══════════════════════════════════════ HOME ═══════════════════════════════════════ -->
-<div class="page active" id="page-home">
+<!-- HOME -->
+<div class="page active" id="p-home">
   <div class="hero">
-    <div class="hero-badge">🇷🇼 Built for Rwanda's Green Economy</div>
+    <div class="hbadge">🇷🇼 Built for Rwanda's Green Economy</div>
     <h1>Turn Your Talent Into a Green Career</h1>
-    <p>EcoTech Youth connects young Rwandans to skills, jobs and community projects in the green economy — building a sustainable future together.</p>
-    <div class="hero-actions">
-      <button class="btn-primary" data-fn="showPage('jobs')">Browse Green Jobs</button>
-      <button class="btn-outline" data-fn="showPage('learn')">Start Learning</button>
+    <p>EcoTech Youth connects young Rwandans to green jobs, skills and community projects — building a sustainable future together.</p>
+    <div class="hacts">
+      <button class="btnp" id="h-jobs">Browse Green Jobs</button>
+      <button class="btno" id="h-learn">Start Learning</button>
     </div>
-    <div class="hero-stats">
-      <div class="stat"><span class="stat-number">340+</span><span class="stat-label">Green Jobs Listed</span></div>
-      <div class="stat"><span class="stat-number">1,200</span><span class="stat-label">Youth Registered</span></div>
-      <div class="stat"><span class="stat-number">48</span><span class="stat-label">Community Projects</span></div>
-      <div class="stat"><span class="stat-number">12</span><span class="stat-label">Partner Organisations</span></div>
-    </div>
-  </div>
-
-  <section style="background:var(--grey-soft);">
-    <div class="section-inner">
-      <div class="section-label">How it works</div>
-      <div class="section-title">Your journey from talent to green enterprise</div>
-      <div class="cards-grid" style="margin-top:1.5rem;">
-        <div class="card" style="border-left:4px solid var(--green-fresh);">
-          <div style="font-size:2rem;margin-bottom:.75rem;">🎓</div>
-          <div style="font-weight:600;font-size:1rem;margin-bottom:.5rem;">Learn</div>
-          <div style="font-size:.9rem;color:var(--ink-soft);">Bite-sized courses on tech skills, environmental entrepreneurship, and green business — built for Rwandan youth.</div>
-          <button class="start-btn" style="margin-top:1rem;" data-fn="showPage('learn')">Go to Learning Hub</button>
-        </div>
-        <div class="card" style="border-left:4px solid var(--earth);">
-          <div style="font-size:2rem;margin-bottom:.75rem;">💼</div>
-          <div style="font-weight:600;font-size:1rem;margin-bottom:.5rem;">Connect</div>
-          <div style="font-size:.9rem;color:var(--ink-soft);">Browse green jobs from NGOs, eco-startups and government programs actively hiring youth talent today.</div>
-          <button class="start-btn" style="margin-top:1rem;" data-fn="showPage('jobs')">View Jobs</button>
-        </div>
-        <div class="card" style="border-left:4px solid #4a90d9;">
-          <div style="font-size:2rem;margin-bottom:.75rem;">🤝</div>
-          <div style="font-weight:600;font-size:1rem;margin-bottom:.5rem;">Build</div>
-          <div style="font-size:.9rem;color:var(--ink-soft);">Pitch your community eco-project, find collaborators, and access funding and mentoring support.</div>
-          <button class="start-btn" style="margin-top:1rem;" data-fn="showPage('submit')">Submit Your Project</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="impact-strip">
-    <div class="impact-grid">
-      <div><span class="impact-num">847</span><span class="impact-label">Young people placed in green jobs</span></div>
-      <div><span class="impact-num">23T</span><span class="impact-label">Tonnes of CO₂ offset by community projects</span></div>
-      <div><span class="impact-num">94%</span><span class="impact-label">Report improved mental wellbeing</span></div>
-      <div><span class="impact-num">18</span><span class="impact-label">Districts reached across Rwanda</span></div>
+    <div class="hstats">
+      <div class="stat"><span class="snum">340+</span><span class="slbl">Green Jobs Listed</span></div>
+      <div class="stat"><span class="snum">1,200</span><span class="slbl">Youth Registered</span></div>
+      <div class="stat"><span class="snum">48</span><span class="slbl">Community Projects</span></div>
+      <div class="stat"><span class="snum">12</span><span class="slbl">Partner Organisations</span></div>
     </div>
   </div>
-
-  <section>
-    <div class="section-inner" style="text-align:center;">
-      <div class="section-label">Hackathon Project</div>
-      <div class="section-title">Built for the Creative Economy Hackathon</div>
-      <p style="color:var(--ink-soft);max-width:580px;margin:0 auto 2rem;">This platform was developed as an entry for the MKU × University of Westminster × ACE Creative Economy Hackathon — 27 November 2024.</p>
-      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-        <button class="apply-btn" data-fn="showPage('pitch')">🎤 View Pitch Deck</button>
-        <button class="apply-btn" style="background:var(--earth);" data-fn="showPage('enterprise')">📊 Business Model</button>
-        <button class="apply-btn" style="background:#4a90d9;" data-fn="showPage('submit')">📧 Submit Project</button>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ═══════════════════════════════════════ JOBS ═══════════════════════════════════════ -->
-<div class="page" id="page-jobs">
-  <section>
-    <div class="section-inner">
-      <div class="section-label">Green Jobs Board</div>
-      <div class="section-title">Opportunities in Rwanda's green economy</div>
-      <div class="section-sub">Find roles in solar energy, sustainable agriculture, eco-tourism, environmental education and more.</div>
-      <div class="job-filters">
-        <button class="filter-btn active" data-fn="filterJobs(this,'all')">All Jobs</button>
-        <button class="filter-btn" data-fn="filterJobs(this,'energy')">Clean Energy</button>
-        <button class="filter-btn" data-fn="filterJobs(this,'agri')">Eco Agriculture</button>
-        <button class="filter-btn" data-fn="filterJobs(this,'media')">Green Media</button>
-        <button class="filter-btn" data-fn="filterJobs(this,'education')">Education</button>
-      </div>
-      <div class="cards-grid" id="jobs-container"></div>
-    </div>
-  </section>
-</div>
-
-<!-- ═══════════════════════════════════════ LEARN ═══════════════════════════════════════ -->
-<div class="page" id="page-learn">
-  <section>
-    <div class="section-inner">
-      <div class="section-label">Learning Hub</div>
-      <div class="section-title">Build skills the green economy needs</div>
-      <div class="section-sub">Free micro-courses combining tech, environment and enterprise — learn at your own pace.</div>
-      <div class="cards-grid" id="courses-container"></div>
-    </div>
-  </section>
-</div>
-
-<!-- ═══════════════════════════════════════ COMMUNITY ═══════════════════════════════════════ -->
-<div class="page" id="page-community">
-  <section>
-    <div class="section-inner">
-      <div class="section-label">Community Projects</div>
-      <div class="section-title">Youth-led eco-solutions across Rwanda</div>
-      <div class="section-sub">Browse active community projects, support them, or pitch your own idea to get funded and mentored.</div>
-      <div style="margin-bottom:2rem;">
-        <button class="apply-btn" data-fn="showPage('submit')">+ Pitch Your Project</button>
-      </div>
-      <div class="community-grid" id="community-container"></div>
-    </div>
-  </section>
-</div>
-
-<!-- ═══════════════════════════════════════ PITCH DECK ═══════════════════════════════════════ -->
-<div class="page" id="page-pitch">
-  <section>
-    <div class="section-inner">
-      <div class="section-label">Hackathon Pitch Deck</div>
-      <div class="section-title">EcoTech Youth — 3-Minute Pitch</div>
-      <div class="section-sub">Our full presentation for the Creative Economy Hackathon. Navigate slide by slide.</div>
-
-      <div class="pitch-nav">
-        <button class="slide-btn" id="prev-btn" data-fn="changeSlide(-1)" disabled>← Previous</button>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:.6rem;">
-          <div class="pitch-counter" id="slide-counter">Slide 1 of 7</div>
-          <div class="slide-dots" id="slide-dots"></div>
+  <section style="background:var(--gs)">
+    <div class="si">
+      <div class="slabel">How it works</div>
+      <div class="stitle">Your journey from talent to green enterprise</div>
+      <div class="grid">
+        <div class="card" style="border-left:4px solid var(--gf)">
+          <div style="font-size:2rem;margin-bottom:.75rem">🎓</div>
+          <div style="font-weight:600;margin-bottom:.5rem">Learn</div>
+          <div style="font-size:.9rem;color:var(--is)">Bite-sized courses on tech skills, environmental entrepreneurship, and green business — built for Rwandan youth.</div>
+          <button class="btn-gl" style="margin-top:1rem" id="hw-learn">Go to Learning Hub</button>
         </div>
-        <button class="slide-btn" id="next-btn" data-fn="changeSlide(1)">Next →</button>
-      </div>
-
-      <div id="slides-container"></div>
-
-      <div style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap;">
-        <button class="apply-btn" data-fn="startAutoPlay()">▶ Auto-Play (3 min)</button>
-        <button class="apply-btn" style="background:var(--grey-soft);color:var(--ink);" data-fn="stopAutoPlay()">⏹ Stop</button>
-        <button class="apply-btn" style="background:var(--earth);" data-fn="showPage('enterprise')">View Business Model →</button>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ═══════════════════════════════════════ ENTERPRISE MODEL ═══════════════════════════════════════ -->
-<div class="page" id="page-enterprise">
-  <section>
-    <div class="section-inner">
-      <div class="section-label">Business Model</div>
-      <div class="section-title">How EcoTech Youth sustains itself</div>
-      <div class="section-sub">A multi-stream revenue model built for long-term self-sustainability — not dependent on donations alone.</div>
-
-      <div class="section-label" style="margin-bottom:.75rem;margin-top:.5rem;">Value Proposition</div>
-      <div class="biz-grid">
-        <div class="biz-card" style="background:var(--green-light);border-color:var(--green-fresh);">
-          <div class="biz-icon">🌱</div>
-          <div class="biz-title">For Youth</div>
-          <div class="biz-desc">Free access to green job listings, skill-building courses, and project funding — lowering every barrier to entry into the green economy.</div>
+        <div class="card" style="border-left:4px solid var(--ea)">
+          <div style="font-size:2rem;margin-bottom:.75rem">💼</div>
+          <div style="font-weight:600;margin-bottom:.5rem">Connect</div>
+          <div style="font-size:.9rem;color:var(--is)">Browse green jobs from NGOs, eco-startups and government programs actively hiring youth talent today.</div>
+          <button class="btn-gl" style="margin-top:1rem" id="hw-jobs">View Jobs</button>
         </div>
-        <div class="biz-card" style="background:var(--earth-light);border-color:#d4a07a;">
-          <div class="biz-icon">🏢</div>
-          <div class="biz-title">For Employers</div>
-          <div class="biz-desc">Access a pipeline of job-ready, trained green-economy talent. Post jobs, host training, and build employer brand with youth audiences.</div>
-        </div>
-        <div class="biz-card" style="background:var(--sky);border-color:#90c7f5;">
-          <div class="biz-icon">🤝</div>
-          <div class="biz-title">For Partners</div>
-          <div class="biz-desc">NGOs, government and universities get a trusted platform to reach youth, deploy programs, and measure real-world environmental impact.</div>
+        <div class="card" style="border-left:4px solid #4a90d9">
+          <div style="font-size:2rem;margin-bottom:.75rem">🤝</div>
+          <div style="font-weight:600;margin-bottom:.5rem">Build</div>
+          <div style="font-size:.9rem;color:var(--is)">Pitch your community eco-project, find collaborators, and access funding and mentoring support.</div>
+          <button class="btn-gl" style="margin-top:1rem" id="hw-submit">Submit Your Project</button>
         </div>
       </div>
+    </div>
+  </section>
+  <div class="istrip">
+    <div class="igrid">
+      <div><span class="inum">847</span><span class="ilbl">Young people placed in green jobs</span></div>
+      <div><span class="inum">23T</span><span class="ilbl">Tonnes of CO₂ offset by community projects</span></div>
+      <div><span class="inum">94%</span><span class="ilbl">Report improved mental wellbeing</span></div>
+      <div><span class="inum">18</span><span class="ilbl">Districts reached across Rwanda</span></div>
+    </div>
+  </div>
+  <section>
+    <div class="si" style="text-align:center">
+      <div class="slabel">Hackathon Project</div>
+      <div class="stitle">Built for the Creative Economy Hackathon</div>
+      <p style="color:var(--is);max-width:580px;margin:0 auto 2rem">MKU × University of Westminster × ACE Creative Economy Hackathon — 27 November 2024.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <button class="btn-g" id="h-pitch">🎤 View Pitch Deck</button>
+        <button class="btn-ea" id="h-ent">📊 Business Model</button>
+        <button class="btn-sky" id="h-sub">📧 Submit Project</button>
+      </div>
+    </div>
+  </section>
+</div>
 
-      <div class="section-label" style="margin:2rem 0 1rem;">Revenue Streams</div>
+<!-- JOBS -->
+<div class="page" id="p-jobs">
+  <section>
+    <div class="si">
+      <div class="slabel">Green Jobs Board</div>
+      <div class="stitle">Opportunities in Rwanda's green economy</div>
+      <div class="ssub">Find roles in solar energy, sustainable agriculture, eco-tourism, environmental education and more.</div>
+      <div class="filters" id="filters">
+        <button class="fbtn active" data-cat="all">All Jobs</button>
+        <button class="fbtn" data-cat="energy">Clean Energy</button>
+        <button class="fbtn" data-cat="agri">Eco Agriculture</button>
+        <button class="fbtn" data-cat="media">Green Media</button>
+        <button class="fbtn" data-cat="education">Education</button>
+      </div>
+      <div class="grid" id="jobs-container"></div>
+    </div>
+  </section>
+</div>
+
+<!-- LEARN -->
+<div class="page" id="p-learn">
+  <section>
+    <div class="si">
+      <div class="slabel">Learning Hub</div>
+      <div class="stitle">Build skills the green economy needs</div>
+      <div class="ssub">Free micro-courses combining tech, environment and enterprise — learn at your own pace.</div>
+      <div class="grid" id="courses-container"></div>
+    </div>
+  </section>
+</div>
+
+<!-- COMMUNITY -->
+<div class="page" id="p-community">
+  <section>
+    <div class="si">
+      <div class="slabel">Community Projects</div>
+      <div class="stitle">Youth-led eco-solutions across Rwanda</div>
+      <div class="ssub">Browse active community projects, support them, or pitch your own idea.</div>
+      <div style="margin-bottom:2rem"><button class="btn-g" id="com-pitch">+ Pitch Your Project</button></div>
+      <div class="cgrid" id="community-container"></div>
+    </div>
+  </section>
+</div>
+
+<!-- PITCH DECK -->
+<div class="page" id="p-pitch">
+  <section>
+    <div class="si">
+      <div class="slabel">Hackathon Pitch Deck</div>
+      <div class="stitle">EcoTech Youth — 3-Minute Pitch</div>
+      <div class="ssub">Our full presentation for the Creative Economy Hackathon. Navigate slide by slide.</div>
+      <div class="pnav">
+        <button class="sbtn" id="prev-btn">← Previous</button>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:.6rem">
+          <div class="pctr" id="slide-ctr">Slide 1 of 7</div>
+          <div class="dots" id="dots"></div>
+        </div>
+        <button class="sbtn" id="next-btn">Next →</button>
+      </div>
+      <div id="slides-wrap"></div>
+      <div style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap">
+        <button class="btn-g" id="autoplay-btn">▶ Auto-Play (3 min)</button>
+        <button class="sbtn" id="stop-btn">⏹ Stop</button>
+        <button class="btn-ea" id="p-ent-btn">View Business Model →</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ENTERPRISE -->
+<div class="page" id="p-enterprise">
+  <section>
+    <div class="si">
+      <div class="slabel">Business Model</div>
+      <div class="stitle">How EcoTech Youth sustains itself</div>
+      <div class="ssub">A multi-stream revenue model built for long-term self-sustainability.</div>
+      <div class="slabel" style="margin-top:.5rem">Value Proposition</div>
+      <div class="bgrid">
+        <div class="bcard" style="background:var(--gl);border-color:var(--gf)">
+          <div class="bicon">🌱</div><div class="btitle">For Youth</div>
+          <div class="bdesc">Free access to green job listings, skill-building courses, and project funding — lowering every barrier to entry into the green economy.</div>
+        </div>
+        <div class="bcard" style="background:var(--el);border-color:#d4a07a">
+          <div class="bicon">🏢</div><div class="btitle">For Employers</div>
+          <div class="bdesc">Access a pipeline of job-ready, trained green-economy talent. Post jobs, host training, and build employer brand with youth audiences.</div>
+        </div>
+        <div class="bcard" style="background:var(--sk);border-color:#90c7f5">
+          <div class="bicon">🤝</div><div class="btitle">For Partners</div>
+          <div class="bdesc">NGOs, government and universities get a trusted platform to reach youth, deploy programs, and measure real-world environmental impact.</div>
+        </div>
+      </div>
+      <div class="slabel" style="margin:2rem 0 1rem">Revenue Streams</div>
       <div id="revenue-container"></div>
-
-      <div class="section-label" style="margin:2.5rem 0 1rem;">Growth Roadmap</div>
-      <div class="cards-grid">
+      <div class="slabel" style="margin:2.5rem 0 1rem">Growth Roadmap</div>
+      <div class="grid">
         <div class="card">
-          <div style="font-weight:700;font-size:.85rem;color:var(--green-mid);margin-bottom:.5rem;">PHASE 1 · Months 1–6</div>
-          <div style="font-weight:600;font-size:1rem;margin-bottom:.5rem;">Launch & Validate</div>
-          <div style="font-size:.85rem;color:var(--ink-soft);line-height:1.7;">Launch platform with 50 green jobs. Onboard 300 youth users. Partner with 3 NGOs. Run 2 pilot training cohorts. Validate job placement model.</div>
+          <div style="font-weight:700;font-size:.85rem;color:var(--gm);margin-bottom:.5rem">PHASE 1 · Months 1–6</div>
+          <div style="font-weight:600;margin-bottom:.5rem">Launch & Validate</div>
+          <div style="font-size:.85rem;color:var(--is);line-height:1.7">Launch with 50 green jobs. Onboard 300 youth users. Partner with 3 NGOs. Run 2 pilot training cohorts. Validate job placement model.</div>
         </div>
         <div class="card">
-          <div style="font-weight:700;font-size:.85rem;color:var(--earth);margin-bottom:.5rem;">PHASE 2 · Months 7–18</div>
-          <div style="font-weight:600;font-size:1rem;margin-bottom:.5rem;">Scale & Monetise</div>
-          <div style="font-size:.85rem;color:var(--ink-soft);line-height:1.7;">Reach 1,000 users across 5 districts. Launch employer subscription. Publish first community project reports. Seek government endorsement.</div>
+          <div style="font-weight:700;font-size:.85rem;color:var(--ea);margin-bottom:.5rem">PHASE 2 · Months 7–18</div>
+          <div style="font-weight:600;margin-bottom:.5rem">Scale & Monetise</div>
+          <div style="font-size:.85rem;color:var(--is);line-height:1.7">Reach 1,000 users across 5 districts. Launch employer subscription. Publish first community project reports. Seek government endorsement.</div>
         </div>
         <div class="card">
-          <div style="font-weight:700;font-size:.85rem;color:#4a90d9;margin-bottom:.5rem;">PHASE 3 · Year 2+</div>
-          <div style="font-weight:600;font-size:1rem;margin-bottom:.5rem;">Regional Expansion</div>
-          <div style="font-size:.85rem;color:var(--ink-soft);line-height:1.7;">Expand to Uganda, Kenya, Tanzania. License platform to universities. Launch EcoTech Youth Fellowship for top project founders.</div>
+          <div style="font-weight:700;font-size:.85rem;color:#4a90d9;margin-bottom:.5rem">PHASE 3 · Year 2+</div>
+          <div style="font-weight:600;margin-bottom:.5rem">Regional Expansion</div>
+          <div style="font-size:.85rem;color:var(--is);line-height:1.7">Expand to Uganda, Kenya, Tanzania. License platform to universities. Launch EcoTech Youth Fellowship for top project founders.</div>
         </div>
-      </div>
-
-      <div class="section-label" style="margin:2.5rem 0 1rem;">Impact Metrics We Track</div>
-      <div class="biz-grid">
-        <div class="biz-card"><div class="biz-icon">👩‍💼</div><div class="biz-title">Jobs Created</div><div class="biz-desc">Number of youth placed in verified green economy roles through the platform.</div></div>
-        <div class="biz-card"><div class="biz-icon">🌍</div><div class="biz-title">CO₂ Offset</div><div class="biz-desc">Tonnes of carbon reduced or offset through community projects supported on the platform.</div></div>
-        <div class="biz-card"><div class="biz-icon">🧠</div><div class="biz-title">Wellbeing Score</div><div class="biz-desc">Self-reported mental health improvement among active users (target: 85%+).</div></div>
-        <div class="biz-card"><div class="biz-icon">🎓</div><div class="biz-title">Skills Completed</div><div class="biz-desc">Total course completions, tracking how many youth are upskilled per quarter.</div></div>
       </div>
     </div>
   </section>
 </div>
 
-<!-- ═══════════════════════════════════════ SUBMIT PROJECT ═══════════════════════════════════════ -->
-<div class="page" id="page-submit">
+<!-- SUBMIT -->
+<div class="page" id="p-submit">
   <section>
-    <div class="section-inner">
-      <div class="section-label">Submit Your Project</div>
-      <div class="section-title">Pitch your idea to the hackathon panel</div>
-      <div class="section-sub">Fill in the form below — your project submission will be sent directly to the hackathon organisers at <strong>hackathon@mku.ac.rw</strong> and <strong>ace@africacreativeenterprise.com</strong>.</div>
-
-      <div class="submit-form">
-        <div id="submit-form-body">
-
-          <div style="background:var(--green-light);border-radius:12px;padding:1rem 1.25rem;margin-bottom:1.75rem;font-size:.88rem;color:var(--green-deep);line-height:1.6;">
+    <div class="si">
+      <div class="slabel">Submit Your Project</div>
+      <div class="stitle">Pitch your idea to the hackathon panel</div>
+      <div class="ssub">Your submission will be sent to <strong>hackathon@mku.ac.rw</strong> and <strong>ace@africacreativeenterprise.com</strong>.</div>
+      <div class="sform">
+        <div id="form-body">
+          <div style="background:var(--gl);border-radius:12px;padding:1rem 1.25rem;margin-bottom:1.75rem;font-size:.88rem;color:var(--gd);line-height:1.6">
             📋 <strong>Hackathon brief:</strong> Teams develop and pitch a creative economy business concept addressing jobs, growth, mental health, wellbeing, and sustainability in Rwanda. Pitches are 3 minutes. Judging covers Innovation, Viability, Wellbeing Impact, Cultural Impact, and Pitch Quality — 20% each.
           </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label">Your Full Name *</label>
-              <input class="form-input" id="f-name" type="text" placeholder="e.g. Jean-Paul Nkurunziza">
-            </div>
-            <div class="form-group">
-              <label class="form-label">Student ID *</label>
-              <input class="form-input" id="f-studentid" type="text" placeholder="e.g. MKU2024/CS/001">
-            </div>
+          <div class="frow">
+            <div class="fg"><label class="fl">Your Full Name *</label><input class="fi" id="f-name" type="text" placeholder="e.g. Jean-Paul Nkurunziza"></div>
+            <div class="fg"><label class="fl">Student ID *</label><input class="fi" id="f-sid" type="text" placeholder="e.g. MKU2024/CS/001"></div>
           </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label">Your Email Address *</label>
-              <input class="form-input" id="f-email" type="email" placeholder="yourname@mku.ac.rw">
-            </div>
-            <div class="form-group">
-              <label class="form-label">Phone Number</label>
-              <input class="form-input" id="f-phone" type="tel" placeholder="+250 7XX XXX XXX">
+          <div class="frow">
+            <div class="fg"><label class="fl">Your Email Address *</label><input class="fi" id="f-email" type="email" placeholder="yourname@mku.ac.rw"></div>
+            <div class="fg"><label class="fl">Phone Number</label><input class="fi" id="f-phone" type="tel" placeholder="+250 7XX XXX XXX"></div>
+          </div>
+          <div class="frow">
+            <div class="fg"><label class="fl">Faculty / Department *</label><input class="fi" id="f-fac" type="text" placeholder="e.g. Computer Science"></div>
+            <div class="fg"><label class="fl">Year of Study *</label>
+              <select class="fsel" id="f-year"><option value="">Select year…</option><option>Year 1</option><option>Year 2</option><option>Year 3</option><option>Year 4</option><option>Postgraduate</option></select>
             </div>
           </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label">Faculty / Department *</label>
-              <input class="form-input" id="f-faculty" type="text" placeholder="e.g. Computer Science">
-            </div>
-            <div class="form-group">
-              <label class="form-label">Year of Study *</label>
-              <select class="form-select" id="f-year">
-                <option value="">Select year…</option>
-                <option>Year 1</option><option>Year 2</option><option>Year 3</option><option>Year 4</option><option>Postgraduate</option>
-              </select>
-            </div>
+          <div class="fg"><label class="fl">Project / Business Name *</label><input class="fi" id="f-pname" type="text" placeholder="e.g. EcoTech Youth"></div>
+          <div class="fg"><label class="fl">Primary Theme *</label>
+            <select class="fsel" id="f-theme"><option value="">Select the main theme…</option><option>Creativity & Entrepreneurship</option><option>Job Creation & Economic Growth</option><option>Mental Health & Wellbeing</option><option>Community Impact</option><option>Culture & Heritage</option><option>Environmental Sustainability</option><option>Multi-theme (combines all 6)</option></select>
           </div>
-
-          <div class="form-group">
-            <label class="form-label">Project / Business Name *</label>
-            <input class="form-input" id="f-projname" type="text" placeholder="e.g. EcoTech Youth">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Primary Theme *</label>
-            <select class="form-select" id="f-theme">
-              <option value="">Select the main theme…</option>
-              <option>Creativity & Entrepreneurship</option>
-              <option>Job Creation & Economic Growth</option>
-              <option>Mental Health & Wellbeing</option>
-              <option>Community Impact</option>
-              <option>Culture & Heritage</option>
-              <option>Environmental Sustainability</option>
-              <option>Multi-theme (combines all 6)</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Project Summary (the problem & your solution) *</label>
-            <textarea class="form-textarea" id="f-summary" maxlength="500" oninput="updateChar('f-summary','char-summary',500)" placeholder="Describe the problem you are solving and your creative solution in 2–4 sentences…"></textarea>
-            <div class="char-counter"><span id="char-summary">0</span>/500 characters</div>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">How does it address all 6 hackathon themes? *</label>
-            <textarea class="form-textarea" id="f-themes" maxlength="600" oninput="updateChar('f-themes','char-themes',600)" placeholder="Explain briefly how your project touches on creativity, jobs, mental health, community, culture, and environment…"></textarea>
-            <div class="char-counter"><span id="char-themes">0</span>/600 characters</div>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">How does the business make money?</label>
-            <textarea class="form-textarea" id="f-revenue" style="min-height:90px;" maxlength="400" oninput="updateChar('f-revenue','char-revenue',400)" placeholder="Describe your revenue model — subscriptions, partnerships, fees, etc."></textarea>
-            <div class="char-counter"><span id="char-revenue">0</span>/400 characters</div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label">Team Members (if any)</label>
-              <input class="form-input" id="f-team" type="text" placeholder="Names separated by commas">
-            </div>
-            <div class="form-group">
-              <label class="form-label">Project Stage</label>
-              <select class="form-select" id="f-stage">
-                <option value="">Select stage…</option>
-                <option>Idea / Concept</option>
-                <option>Prototype / Demo built</option>
-                <option>Pilot / Testing</option>
-                <option>Early stage — some users</option>
-              </select>
+          <div class="fg"><label class="fl">Project Summary *</label><textarea class="ft" id="f-summary" maxlength="500" placeholder="Describe the problem you are solving and your creative solution in 2–4 sentences…"></textarea><div class="cc"><span id="c-summary">0</span>/500</div></div>
+          <div class="fg"><label class="fl">How does it address all 6 hackathon themes? *</label><textarea class="ft" id="f-themes" maxlength="600" placeholder="Explain briefly how your project touches on creativity, jobs, mental health, community, culture, and environment…"></textarea><div class="cc"><span id="c-themes">0</span>/600</div></div>
+          <div class="fg"><label class="fl">How does the business make money?</label><textarea class="ft" id="f-rev" style="min-height:90px" maxlength="400" placeholder="Describe your revenue model…"></textarea><div class="cc"><span id="c-rev">0</span>/400</div></div>
+          <div class="frow">
+            <div class="fg"><label class="fl">Team Members (if any)</label><input class="fi" id="f-team" type="text" placeholder="Names separated by commas"></div>
+            <div class="fg"><label class="fl">Project Stage</label>
+              <select class="fsel" id="f-stage"><option value="">Select stage…</option><option>Idea / Concept</option><option>Prototype / Demo built</option><option>Pilot / Testing</option><option>Early stage — some users</option></select>
             </div>
           </div>
-
-          <div class="form-group">
-            <label class="form-label">Anything else you want the judges to know?</label>
-            <textarea class="form-textarea" id="f-extra" style="min-height:80px;" maxlength="300" oninput="updateChar('f-extra','char-extra',300)" placeholder="Optional — unique strengths, your inspiration, what support you need…"></textarea>
-            <div class="char-counter"><span id="char-extra">0</span>/300 characters</div>
+          <div class="fg"><label class="fl">Anything else for the judges?</label><textarea class="ft" id="f-extra" style="min-height:80px" maxlength="300" placeholder="Optional…"></textarea><div class="cc"><span id="c-extra">0</span>/300</div></div>
+          <div style="background:var(--gs);border-radius:12px;padding:1rem 1.25rem;margin-bottom:1.25rem;font-size:.85rem;color:var(--is);line-height:1.7">
+            📧 Submission will be prepared for: <strong style="color:var(--ink)">hackathon@mku.ac.rw</strong> and <strong style="color:var(--ink)">ace@africacreativeenterprise.com</strong><br>
+            Deadline: <strong style="color:var(--gm)">Friday 27 November 2024, 12:00 noon</strong>
           </div>
-
-          <div style="background:var(--grey-soft);border-radius:12px;padding:1rem 1.25rem;margin-bottom:1.25rem;font-size:.85rem;color:var(--ink-soft);line-height:1.7;">
-            📧 On submission, a copy of your project details will be prepared for you to send to:<br>
-            <strong style="color:var(--ink);">hackathon@mku.ac.rw</strong> and <strong style="color:var(--ink);">ace@africacreativeenterprise.com</strong><br>
-            Deadline: <strong style="color:var(--green-mid);">Friday 27 November 2024, 12:00 noon</strong>
-          </div>
-
-          <button class="form-submit" data-fn="submitProject()">📧 Submit My Project to Hackathon</button>
+          <button class="fsub" id="submit-btn">📧 Submit My Project to Hackathon</button>
         </div>
-
-        <div class="submit-success" id="submit-success">
-          <span class="big-check">🎉</span>
+        <div class="succ" id="succ">
+          <span class="ck">🎉</span>
           <h3>Project Submitted!</h3>
-          <p id="submit-success-msg">Your project has been prepared. Open your email app to send it to the hackathon panel — good luck!</p>
-          <div style="margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-            <button class="apply-btn" id="email-btn" data-fn="openEmail()">📧 Open in Email App</button>
-            <button class="apply-btn" style="background:var(--grey-soft);color:var(--ink);" data-fn="resetForm()">Submit Another</button>
+          <p id="succ-msg">Your project has been prepared. Open your email app to send it to the hackathon panel — good luck!</p>
+          <div style="margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+            <button class="btn-g" id="email-btn">📧 Open in Email App</button>
+            <button class="sbtn" id="reset-btn">Submit Another</button>
           </div>
-          <div style="margin-top:1.5rem;background:var(--green-light);border-radius:12px;padding:1rem 1.5rem;font-size:.85rem;color:var(--green-deep);text-align:left;line-height:1.7;" id="email-preview"></div>
+          <div style="margin-top:1.5rem;background:var(--gl);border-radius:12px;padding:1rem 1.5rem;font-size:.85rem;color:var(--gd);text-align:left;line-height:1.7" id="email-prev"></div>
         </div>
       </div>
     </div>
@@ -569,19 +468,19 @@ footer{background:var(--grey-soft);border-top:1px solid var(--grey-line);padding
 </div>
 
 <!-- MODAL -->
-<div class="modal-overlay" id="modal">
+<div class="moverlay" id="modal">
   <div class="modal">
-    <button class="modal-close" data-fn="closeModal()">✕</button>
-    <div id="modal-form">
+    <button class="mclose" id="mclose">✕</button>
+    <div id="mform">
       <h3>Join EcoTech Youth</h3>
       <p>Connect to Rwanda's green economy — free for all youth.</p>
-      <input type="text" class="modal-input" placeholder="Full name" id="modal-name">
-      <input type="email" class="modal-input" placeholder="Email address" id="modal-email">
-      <input type="text" class="modal-input" placeholder="University / Institution" id="modal-uni">
-      <button class="modal-submit" data-fn="submitJoin()">Join the Platform</button>
+      <input type="text" class="mi" id="m-name" placeholder="Full name">
+      <input type="email" class="mi" id="m-email" placeholder="Email address">
+      <input type="text" class="mi" id="m-uni" placeholder="University / Institution">
+      <button class="msub" id="mjoin">Join the Platform</button>
     </div>
-    <div class="success-msg" id="modal-success">
-      <span class="check">✅</span>
+    <div class="msucc" id="msucc">
+      <span class="ck">✅</span>
       <h4>Welcome to EcoTech Youth!</h4>
       <p>You're now part of Rwanda's green economy movement.</p>
     </div>
@@ -590,378 +489,333 @@ footer{background:var(--grey-soft);border-top:1px solid var(--grey-line);padding
 
 <div class="toast" id="toast"></div>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-links">
-    <button data-fn="showPage('home')">Home</button>
-    <button data-fn="showPage('jobs')">Green Jobs</button>
-    <button data-fn="showPage('learn')">Learn</button>
-    <button data-fn="showPage('community')">Community</button>
-    <button data-fn="showPage('pitch')">Pitch Deck</button>
-    <button data-fn="showPage('enterprise')">Business Model</button>
-    <button data-fn="showPage('submit')">Submit Project</button>
+  <div class="flinks">
+    <button id="f-home">Home</button><button id="f-jobs">Green Jobs</button>
+    <button id="f-learn">Learn</button><button id="f-community">Community</button>
+    <button id="f-pitch">Pitch Deck</button><button id="f-enterprise">Business Model</button>
+    <button id="f-submit">Submit Project</button>
   </div>
-  <div class="footer-copy">🌿 EcoTech Youth · Built for MKU × University of Westminster × ACE Creative Economy Hackathon · 27 November 2024</div>
+  <div class="fcopy">🌿 EcoTech Youth · Built for MKU × University of Westminster × ACE Creative Economy Hackathon · 27 November 2024</div>
 </footer>
 
 <script>
-// ══════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════
 // DATA
-// ══════════════════════════════════════════════════════
-const jobs = [
-  {category:'energy',icon:'☀️',iconBg:'#fff9e6',org:'Rwanda Energy Group',location:'Kigali',title:'Solar Installation Technician (Trainee)',desc:'Join our youth solar program — learn to install and maintain solar panels in rural communities while earning a stipend.',tags:['Solar','Technical','Field Work'],pay:'RWF 80,000/mo',deadline:'Closes Dec 15',badge:'Full Time',badgeClass:'badge-green'},
-  {category:'media',icon:'📸',iconBg:'#f0f4ff',org:'Green Earth Media',location:'Kigali / Remote',title:'Environmental Content Creator',desc:'Create compelling stories about Rwanda's natural environment for digital platforms — photography, video, and social media.',tags:['Content','Photography','Social Media'],pay:'RWF 60,000/mo',deadline:'Closes Dec 20',badge:'Part Time',badgeClass:'badge-sky'},
-  {category:'agri',icon:'🌱',iconBg:'#f0faf4',org:'AgriRwanda Cooperative',location:'Musanze',title:'Sustainable Farming Coordinator',desc:'Support small-scale farmers in adopting eco-friendly practices. Requires passion for agriculture and community development.',tags:['Agriculture','Community','Training'],pay:'RWF 70,000/mo',deadline:'Closes Jan 5',badge:'Full Time',badgeClass:'badge-green'},
-  {category:'education',icon:'📚',iconBg:'#fff0f8',org:'EcoLearn Rwanda',location:'Various Districts',title:'Green Education Facilitator',desc:'Deliver environmental awareness workshops to secondary school students across Rwanda. Training provided.',tags:['Education','Youth','Environment'],pay:'RWF 55,000/mo',deadline:'Closes Dec 30',badge:'Contract',badgeClass:'badge-earth'},
-  {category:'energy',icon:'⚡',iconBg:'#fff9e6',org:'CleanTech Hub Kigali',location:'Kigali',title:'Green Tech Developer (Junior)',desc:'Build apps and platforms supporting Rwanda's clean energy transition. CS background preferred — perfect for tech students.',tags:['Tech','App Dev','Clean Energy'],pay:'RWF 120,000/mo',deadline:'Closes Dec 18',badge:'Full Time',badgeClass:'badge-green'},
-  {category:'agri',icon:'🍃',iconBg:'#f0faf4',org:'Rwanda Reforestation Initiative',location:'Nyungwe Region',title:'Community Reforestation Officer',desc:'Lead tree planting drives and train local communities on forest conservation and sustainable land use.',tags:['Forestry','Community','Conservation'],pay:'RWF 65,000/mo',deadline:'Closes Jan 10',badge:'Full Time',badgeClass:'badge-green'}
+// ═══════════════════════════════════════════════════
+const jobs=[
+  {cat:'energy',icon:'☀️',bg:'#fff9e6',org:'Rwanda Energy Group',loc:'Kigali',title:'Solar Installation Technician (Trainee)',desc:'Join our youth solar program — learn to install and maintain solar panels in rural communities while earning a stipend.',tags:['Solar','Technical','Field Work'],pay:'RWF 80,000/mo',dl:'Closes Dec 15',badge:'Full Time',bc:'bg'},
+  {cat:'media',icon:'📸',bg:'#f0f4ff',org:'Green Earth Media',loc:'Kigali / Remote',title:'Environmental Content Creator',desc:'Create compelling stories about Rwanda's natural environment for digital platforms — photography, video, and social media.',tags:['Content','Photography','Social Media'],pay:'RWF 60,000/mo',dl:'Closes Dec 20',badge:'Part Time',bc:'bs'},
+  {cat:'agri',icon:'🌱',bg:'#f0faf4',org:'AgriRwanda Cooperative',loc:'Musanze',title:'Sustainable Farming Coordinator',desc:'Support small-scale farmers in adopting eco-friendly practices. Requires passion for agriculture and community development.',tags:['Agriculture','Community','Training'],pay:'RWF 70,000/mo',dl:'Closes Jan 5',badge:'Full Time',bc:'bg'},
+  {cat:'education',icon:'📚',bg:'#fff0f8',org:'EcoLearn Rwanda',loc:'Various Districts',title:'Green Education Facilitator',desc:'Deliver environmental awareness workshops to secondary school students across Rwanda. Training provided.',tags:['Education','Youth','Environment'],pay:'RWF 55,000/mo',dl:'Closes Dec 30',badge:'Contract',bc:'be'},
+  {cat:'energy',icon:'⚡',bg:'#fff9e6',org:'CleanTech Hub Kigali',loc:'Kigali',title:'Green Tech Developer (Junior)',desc:'Build apps and platforms supporting Rwanda's clean energy transition. CS background preferred — perfect for tech students.',tags:['Tech','App Dev','Clean Energy'],pay:'RWF 120,000/mo',dl:'Closes Dec 18',badge:'Full Time',bc:'bg'},
+  {cat:'agri',icon:'🍃',bg:'#f0faf4',org:'Rwanda Reforestation Initiative',loc:'Nyungwe Region',title:'Community Reforestation Officer',desc:'Lead tree planting drives and train local communities on forest conservation and sustainable land use.',tags:['Forestry','Community','Conservation'],pay:'RWF 65,000/mo',dl:'Closes Jan 10',badge:'Full Time',bc:'bg'}
 ];
 
-const courses = [
-  {emoji:'☀️',bg:'linear-gradient(135deg,#fff3c0,#ffd966)',title:'Introduction to Green Entrepreneurship',desc:'Learn how to identify green business opportunities and build enterprise models with real social and environmental impact.',modules:8,duration:'4 hours',progress:0,level:'Beginner'},
-  {emoji:'💻',bg:'linear-gradient(135deg,#c8e6ff,#90c7f5)',title:'Tech Skills for the Green Economy',desc:'Build the digital skills that eco-employers need — data tracking, app basics, and digital storytelling for environmental causes.',modules:10,duration:'6 hours',progress:35,level:'Intermediate'},
-  {emoji:'🌍',bg:'linear-gradient(135deg,#c8f0d8,#6dd99a)',title:'Climate Change & Rwanda',desc:'Understand climate science, Rwanda's environmental commitments, and how youth can drive change at a local level.',modules:6,duration:'3 hours',progress:70,level:'Beginner'},
-  {emoji:'📢',bg:'linear-gradient(135deg,#f9d8e8,#f5a0c8)',title:'Environmental Storytelling & Media',desc:'Use photography, video and social media to tell powerful stories about environmental issues and green solutions in your community.',modules:7,duration:'5 hours',progress:0,level:'Beginner'},
-  {emoji:'🌱',bg:'linear-gradient(135deg,#e8f5d0,#b8e06a)',title:'Sustainable Agriculture Basics',desc:'Explore eco-friendly farming methods, soil health, and how to build viable agri-enterprises in Rwanda's context.',modules:9,duration:'5.5 hours',progress:15,level:'Beginner'},
-  {emoji:'💰',bg:'linear-gradient(135deg,#fff0d8,#ffc875)',title:'Pitching Green Businesses to Investors',desc:'Master the art of pitching — learn how to build an investor deck, tell your impact story, and convince funders to back your idea.',modules:5,duration:'3 hours',progress:0,level:'Advanced'}
+const courses=[
+  {e:'☀️',bg:'linear-gradient(135deg,#fff3c0,#ffd966)',title:'Introduction to Green Entrepreneurship',desc:'Learn how to identify green business opportunities and build enterprise models with real social and environmental impact.',mods:8,dur:'4 hours',prog:0,lvl:'Beginner'},
+  {e:'💻',bg:'linear-gradient(135deg,#c8e6ff,#90c7f5)',title:'Tech Skills for the Green Economy',desc:'Build the digital skills that eco-employers need — data tracking, app basics, and digital storytelling for environmental causes.',mods:10,dur:'6 hours',prog:35,lvl:'Intermediate'},
+  {e:'🌍',bg:'linear-gradient(135deg,#c8f0d8,#6dd99a)',title:'Climate Change & Rwanda',desc:'Understand climate science, Rwanda's environmental commitments, and how youth can drive change at a local level.',mods:6,dur:'3 hours',prog:70,lvl:'Beginner'},
+  {e:'📢',bg:'linear-gradient(135deg,#f9d8e8,#f5a0c8)',title:'Environmental Storytelling & Media',desc:'Use photography, video and social media to tell powerful stories about environmental issues and green solutions.',mods:7,dur:'5 hours',prog:0,lvl:'Beginner'},
+  {e:'🌱',bg:'linear-gradient(135deg,#e8f5d0,#b8e06a)',title:'Sustainable Agriculture Basics',desc:'Explore eco-friendly farming methods, soil health, and how to build viable agri-enterprises in Rwanda's context.',mods:9,dur:'5.5 hours',prog:15,lvl:'Beginner'},
+  {e:'💰',bg:'linear-gradient(135deg,#fff0d8,#ffc875)',title:'Pitching Green Businesses to Investors',desc:'Master the art of pitching — learn how to build an investor deck, tell your impact story, and convince funders.',mods:5,dur:'3 hours',prog:0,lvl:'Advanced'}
 ];
 
-const projects = [
-  {emoji:'🗑️',iconBg:'#fff0d8',title:'Kigali Clean Streets Initiative',author:'by Amina Uwimana · Kigali',desc:'Youth-led waste collection and recycling program turning plastic waste into crafts and income for 15 young people in Kimironko.',funded:72,goal:'RWF 500,000',raised:'RWF 360,000',supporters:34},
-  {emoji:'🌿',iconBg:'#f0faf4',title:'School Garden Network',author:'by Jean-Claude Habimana · Musanze',desc:'Building eco-gardens in 10 secondary schools, teaching students sustainable food growing while improving school nutrition.',funded:45,goal:'RWF 800,000',raised:'RWF 360,000',supporters:21},
-  {emoji:'☀️',iconBg:'#fff9e6',title:'Rural Solar Lighting Project',author:'by Grace Mukantwali · Nyanza',desc:'Installing solar-powered streetlights in 3 rural villages, trained and maintained by local youth earning a monthly stipend.',funded:88,goal:'RWF 1,200,000',raised:'RWF 1,056,000',supporters:67},
-  {emoji:'📸',iconBg:'#f0f4ff',title:'Rwanda Green Voices — Media Collective',author:'by Patrick Nkurunziza · Kigali',desc:'A youth media collective documenting Rwanda's environmental heritage through photography and short documentary films.',funded:30,goal:'RWF 400,000',raised:'RWF 120,000',supporters:18}
+const projects=[
+  {e:'🗑️',bg:'#fff0d8',title:'Kigali Clean Streets Initiative',auth:'by Amina Uwimana · Kigali',desc:'Youth-led waste collection and recycling program turning plastic waste into crafts and income for 15 young people.',pct:72,goal:'RWF 500,000',raised:'RWF 360,000',sup:34},
+  {e:'🌿',bg:'#f0faf4',title:'School Garden Network',auth:'by Jean-Claude Habimana · Musanze',desc:'Building eco-gardens in 10 secondary schools, teaching students sustainable food growing while improving school nutrition.',pct:45,goal:'RWF 800,000',raised:'RWF 360,000',sup:21},
+  {e:'☀️',bg:'#fff9e6',title:'Rural Solar Lighting Project',auth:'by Grace Mukantwali · Nyanza',desc:'Installing solar-powered streetlights in 3 rural villages, trained and maintained by local youth earning a monthly stipend.',pct:88,goal:'RWF 1,200,000',raised:'RWF 1,056,000',sup:67},
+  {e:'📸',bg:'#f0f4ff',title:'Rwanda Green Voices — Media Collective',auth:'by Patrick Nkurunziza · Kigali',desc:'A youth media collective documenting Rwanda's environmental heritage through photography and short documentary films.',pct:30,goal:'RWF 400,000',raised:'RWF 120,000',sup:18}
 ];
 
-const slides = [
-  {num:'01 / 07',emoji:'🌿',title:'The Problem',body:`<p>Rwanda has thousands of talented, ambitious young people. Yet:</p><ul><li>Green economy jobs exist but youth can't find them</li><li>Skills exist but no pathway to eco-employers</li><li>Community eco-ideas exist but no funding or support</li><li>Digital tools don't connect <em>tech + environment + youth</em></li></ul>`},
-  {num:'02 / 07',emoji:'💡',title:'The Solution — EcoTech Youth',body:`<p>A mobile and web platform that connects young Rwandans to <strong>green jobs, skills, and community project support</strong> — all in one place.</p><div class="slide-cols"><div class="slide-col"><div class="slide-col-title">🎓 Learn</div><div class="slide-col-body">Free micro-courses on green tech, eco-business & environmental skills</div></div><div class="slide-col"><div class="slide-col-title">💼 Connect</div><div class="slide-col-body">Green job board linking youth to employers in clean energy, agri & media</div></div></div>`},
-  {num:'03 / 07',emoji:'🏆',title:'How It Hits All 6 Themes',body:`<ul><li><strong>Creativity & Entrepreneurship</strong> — turning youth skills into real enterprises</li><li><strong>Job Creation & Growth</strong> — direct green economy employment</li><li><strong>Mental Health & Wellbeing</strong> — purposeful work builds confidence</li><li><strong>Community Impact</strong> — local eco-projects, local solutions</li><li><strong>Culture & Heritage</strong> — stories told through Rwandan lens</li><li><strong>Environmental Sustainability</strong> — the entire platform's core mission</li></ul>`},
-  {num:'04 / 07',emoji:'💰',title:'Business Model',body:`<div class="slide-cols"><div class="slide-col"><div class="slide-col-title">Revenue Streams</div><div class="slide-col-body">• Employer subscriptions (RWF 150k/mo)<br>• Paid training cohorts<br>• NGO/govt partnership contracts<br>• Data & impact reporting fees</div></div><div class="slide-col"><div class="slide-col-title">Year 1 Target</div><div class="slide-col-body">• 10 paying employers<br>• 3 NGO contracts<br>• 2 training cohorts<br>• Revenue: ~RWF 18M</div></div></div>`},
-  {num:'05 / 07',emoji:'📊',title:'Traction & Impact',body:`<div class="slide-cols"><div class="slide-col"><div class="slide-col-title">Platform Demo</div><div class="slide-col-body">Working prototype built — job board, learning hub, community projects, and project submission — all functional today.</div></div><div class="slide-col"><div class="slide-col-title">Target Impact</div><div class="slide-col-body">• 1,000 users in Year 1<br>• 200 green jobs filled<br>• 48 community projects<br>• 18 districts reached</div></div></div>`},
-  {num:'06 / 07',emoji:'🗺️',title:'Roadmap',body:`<ul><li><strong>Months 1–6:</strong> Launch, 300 users, 3 NGO partners, pilot training cohorts</li><li><strong>Months 7–18:</strong> 1,000 users, 5 districts, employer subscriptions live, government endorsement</li><li><strong>Year 2+:</strong> Expand to Uganda, Kenya, Tanzania — license to universities</li></ul>`},
-  {num:'07 / 07',emoji:'🚀',title:'Why Back EcoTech Youth?',body:`<p>We're not just pitching an idea — <strong>we've built it.</strong></p><p style="margin-top:.75rem">As a Computer Science student at MKU, I can build, maintain and scale this platform. EcoTech Youth is Rwanda's bridge between young talent and the green economy.</p><p style="margin-top:.75rem;font-style:italic;opacity:.9">"Invest in our youth — invest in our future."</p>`}
+const slides=[
+  {n:'01/07',e:'🌿',t:'The Problem',b:`<p>Rwanda has thousands of talented, ambitious young people. Yet:</p><ul><li>Green economy jobs exist — but youth <strong>cannot find</strong> them</li><li>Skills exist — but no clear pathway to eco-employers</li><li>Community eco-ideas exist — but lack funding and support</li><li>No single platform connects <em>tech + environment + youth</em></li></ul>`},
+  {n:'02/07',e:'💡',t:'The Solution — EcoTech Youth',b:`<p>A mobile and web platform connecting young Rwandans to <strong>green jobs, skills, and community project support</strong> — all in one place.</p><div class="scols"><div class="scol"><div class="scol-t">🎓 Learn</div><div class="scol-b">Free micro-courses on green tech, eco-business & environmental skills</div></div><div class="scol"><div class="scol-t">💼 Connect</div><div class="scol-b">Green job board linking youth to employers in clean energy, agri & media</div></div></div>`},
+  {n:'03/07',e:'🏆',t:'How It Hits All 6 Themes',b:`<ul><li><strong>Creativity & Entrepreneurship</strong> — turning youth skills into real enterprises</li><li><strong>Job Creation & Growth</strong> — direct green economy employment</li><li><strong>Mental Health & Wellbeing</strong> — purposeful work builds confidence</li><li><strong>Community Impact</strong> — local eco-projects, local solutions</li><li><strong>Culture & Heritage</strong> — stories told through Rwandan lens</li><li><strong>Environmental Sustainability</strong> — the entire platform's core mission</li></ul>`},
+  {n:'04/07',e:'💰',t:'Business Model',b:`<div class="scols"><div class="scol"><div class="scol-t">Revenue Streams</div><div class="scol-b">• Employer subscriptions (RWF 150k/mo)<br>• Paid training cohorts<br>• NGO/govt partnership contracts<br>• Data & impact reporting fees</div></div><div class="scol"><div class="scol-t">Year 1 Target</div><div class="scol-b">• 10 paying employers<br>• 3 NGO contracts<br>• 2 training cohorts<br>• Revenue: ~RWF 45M</div></div></div>`},
+  {n:'05/07',e:'📊',t:'Traction & Impact',b:`<div class="scols"><div class="scol"><div class="scol-t">Platform Demo</div><div class="scol-b">Working prototype built — job board, learning hub, community projects, and project submission — all functional today.</div></div><div class="scol"><div class="scol-t">Target Impact</div><div class="scol-b">• 1,000 users in Year 1<br>• 200 green jobs filled<br>• 48 community projects<br>• 18 districts reached</div></div></div>`},
+  {n:'06/07',e:'🗺️',t:'Roadmap',b:`<ul><li><strong>Months 1–6:</strong> Launch, 300 users, 3 NGO partners, pilot training cohorts</li><li><strong>Months 7–18:</strong> 1,000 users, 5 districts, employer subscriptions live, government endorsement</li><li><strong>Year 2+:</strong> Expand to Uganda, Kenya, Tanzania — license to universities</li></ul>`},
+  {n:'07/07',e:'🚀',t:"Why Back EcoTech Youth?",b:`<p>We're not just pitching an idea — <strong>we've built it.</strong></p><p style="margin-top:.75rem">As a Computer Science student at MKU, I can build, maintain and scale this platform. EcoTech Youth is Rwanda's bridge between young talent and the green economy.</p><p style="margin-top:.75rem;font-style:italic;opacity:.9">"Invest in our youth — invest in our future."</p>`}
 ];
 
-const revenues = [
-  {icon:'🏢',name:'Employer Subscriptions',desc:'Monthly fee for companies to post jobs & access talent pool',amount:'RWF 150,000/mo',pct:40},
+const revenues=[
+  {icon:'🏢',name:'Employer Subscriptions',desc:'Monthly fee for companies to post jobs & access talent',amount:'RWF 150,000/mo',pct:40},
   {icon:'🎓',name:'Paid Training Cohorts',desc:'Premium training programs co-designed with partners',amount:'RWF 80,000/cohort',pct:25},
   {icon:'🤝',name:'NGO & Govt Contracts',desc:'Platform deployment contracts for youth employment programs',amount:'RWF 500,000/contract',pct:20},
-  {icon:'📊',name:'Impact Data Reports',desc:'Quarterly impact reports for CSR & development partners',amount:'RWF 50,000/report',pct:10},
-  {icon:'📣',name:'Sponsored Opportunities',desc:'Featured job and project listings from verified eco-partners',amount:'RWF 20,000/listing',pct:5}
+  {icon:'📊',name:'Impact Data Reports',desc:'Quarterly impact reports for CSR and development partners',amount:'RWF 50,000/report',pct:10},
+  {icon:'📣',name:'Sponsored Listings',desc:'Featured job and project listings from verified eco-partners',amount:'RWF 20,000/listing',pct:5}
 ];
 
-// ══════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════
 // RENDER
-// ══════════════════════════════════════════════════════
-function renderJobs(filter='all'){
-  const c=document.getElementById('jobs-container');
-  const f=filter==='all'?jobs:jobs.filter(j=>j.category===filter);
-  c.innerHTML=f.map(j=>`
-    <div class="card job-card">
-      <div class="job-top">
-        <div class="job-org">
-          <div class="org-icon" style="background:${j.iconBg}">${j.icon}</div>
-          <div><div class="org-name">${j.org}</div><div class="org-loc">📍 ${j.location}</div></div>
-        </div>
-        <span class="job-badge ${j.badgeClass}">${j.badge}</span>
+// ═══════════════════════════════════════════════════
+function renderJobs(cat){
+  cat=cat||'all';
+  const list=cat==='all'?jobs:jobs.filter(j=>j.cat===cat);
+  document.getElementById('jobs-container').innerHTML=list.map(j=>`
+    <div class="card jcard">
+      <div class="jtop">
+        <div class="jorg"><div class="oicon" style="background:${j.bg}">${j.icon}</div>
+          <div><div class="oname">${j.org}</div><div class="oloc">📍 ${j.loc}</div></div></div>
+        <span class="jbadge ${j.bc}">${j.badge}</span>
       </div>
-      <div class="job-title">${j.title}</div>
-      <div class="job-desc">${j.desc}</div>
-      <div class="job-tags">${j.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
-      <div class="job-footer">
-        <div><div class="job-pay">${j.pay}</div><div class="job-deadline">${j.deadline}</div></div>
-        <button class="apply-btn" data-fn="showToast('Application started for: ${j.title}')">Apply Now</button>
+      <div class="jtitle">${j.title}</div>
+      <div class="jdesc">${j.desc}</div>
+      <div class="jtags">${j.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+      <div class="jfoot">
+        <div><div class="jpay">${j.pay}</div><div class="jdl">${j.dl}</div></div>
+        <button class="btn-g apply-job-btn">Apply Now</button>
       </div>
     </div>`).join('');
+  document.querySelectorAll('.apply-job-btn').forEach((btn,i)=>{
+    btn.addEventListener('click',()=>toast('Application started for: '+list[i].title));
+  });
 }
 
 function renderCourses(){
-  const c=document.getElementById('courses-container');
-  c.innerHTML=courses.map(co=>`
-    <div class="card course-card">
-      <div class="course-thumb" style="background:${co.bg}">${co.emoji}</div>
-      <div><div class="course-title">${co.title}</div><div class="course-desc" style="margin-top:.35rem">${co.desc}</div></div>
-      <div class="course-meta"><span>📚 ${co.modules} modules · ⏱ ${co.duration}</span><span class="job-badge badge-green" style="font-size:.72rem">${co.level}</span></div>
-      ${co.progress>0?`<div><div style="display:flex;justify-content:space-between;font-size:.78rem;color:var(--ink-soft);margin-bottom:.3rem"><span>Progress</span><span>${co.progress}%</span></div><div class="progress-bar"><div class="progress-fill" style="width:${co.progress}%"></div></div></div>`:''}
-      <button class="start-btn" data-fn="showToast('${co.progress>0?'Resuming':'Starting'}: ${co.title}')">${co.progress>0?'Continue':'Start Course'}</button>
+  document.getElementById('courses-container').innerHTML=courses.map((c,i)=>`
+    <div class="card ccard">
+      <div class="cthumb" style="background:${c.bg}">${c.e}</div>
+      <div><div class="ctitle">${c.title}</div><div class="cdesc" style="margin-top:.35rem">${c.desc}</div></div>
+      <div class="cmeta"><span>📚 ${c.mods} modules · ⏱ ${c.dur}</span><span class="jbadge bg" style="font-size:.72rem">${c.lvl}</span></div>
+      ${c.prog>0?`<div><div style="display:flex;justify-content:space-between;font-size:.78rem;color:var(--is);margin-bottom:.3rem"><span>Progress</span><span>${c.prog}%</span></div><div class="pbar"><div class="pfill" style="width:${c.prog}%"></div></div></div>`:''}
+      <button class="btn-gl course-btn" data-i="${i}">${c.prog>0?'Continue':'Start Course'}</button>
     </div>`).join('');
+  document.querySelectorAll('.course-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const c=courses[+btn.dataset.i];
+      toast((c.prog>0?'Resuming: ':'Starting: ')+c.title);
+    });
+  });
 }
 
 function renderCommunity(){
-  const c=document.getElementById('community-container');
-  c.innerHTML=projects.map(p=>`
-    <div class="card project-card">
-      <div class="project-header">
-        <div class="project-icon" style="background:${p.iconBg}">${p.emoji}</div>
-        <div><div class="project-title">${p.title}</div><div class="project-author">${p.author}</div></div>
+  document.getElementById('community-container').innerHTML=projects.map((p,i)=>`
+    <div class="card pcard">
+      <div class="phead"><div class="picon" style="background:${p.bg}">${p.e}</div>
+        <div><div class="ptitle">${p.title}</div><div class="pauthor">${p.auth}</div></div></div>
+      <div class="pdesc">${p.desc}</div>
+      <div class="pfund">
+        <div><div class="fpct">${p.pct}%</div><div class="flbl">${p.raised} raised</div></div>
+        <div class="fbar"><div class="ffill" style="width:${p.pct}%"></div></div>
+        <div style="text-align:right"><div style="font-size:.78rem;color:var(--is)">${p.sup} supporters</div></div>
       </div>
-      <div class="project-desc">${p.desc}</div>
-      <div class="project-funding">
-        <div><div class="funding-pct">${p.funded}%</div><div class="funding-label">${p.raised} raised</div></div>
-        <div class="funding-bar"><div class="funding-fill" style="width:${p.funded}%"></div></div>
-        <div style="text-align:right"><div style="font-size:.78rem;color:var(--ink-soft)">${p.supporters} supporters</div></div>
-      </div>
-      <button class="support-btn" data-fn="showToast('Thank you for supporting: ${p.title}!')">Support Project</button>
+      <button class="btn-g sup-btn" data-i="${i}">Support Project</button>
     </div>`).join('');
+  document.querySelectorAll('.sup-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>toast('Thank you for supporting: '+projects[+btn.dataset.i].title+'!'));
+  });
 }
 
 function renderRevenue(){
-  const c=document.getElementById('revenue-container');
-  c.innerHTML=revenues.map(r=>`
-    <div class="revenue-row">
-      <div class="rev-icon">${r.icon}</div>
-      <div style="flex:2">
-        <div class="rev-name">${r.name}</div>
-        <div style="font-size:.78rem;color:var(--ink-soft)">${r.desc}</div>
-        <div class="rev-bar-wrap" style="margin-top:.4rem"><div class="rev-bar" style="width:${r.pct*2.5}%"></div></div>
+  document.getElementById('revenue-container').innerHTML=revenues.map(r=>`
+    <div class="rrow">
+      <div class="ricon">${r.icon}</div>
+      <div style="flex:2"><div class="rname">${r.name}</div>
+        <div style="font-size:.78rem;color:var(--is)">${r.desc}</div>
+        <div class="rbarw" style="margin-top:.4rem"><div class="rbar" style="width:${r.pct*2.5}%"></div></div>
       </div>
-      <div style="text-align:right">
-        <div class="rev-amount">${r.amount}</div>
-        <div style="font-size:.75rem;color:var(--ink-soft)">${r.pct}% of revenue</div>
-      </div>
+      <div style="text-align:right"><div class="ramount">${r.amount}</div>
+        <div style="font-size:.75rem;color:var(--is)">${r.pct}% of revenue</div></div>
     </div>`).join('');
 }
 
-// ══════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════
 // PITCH DECK
-// ══════════════════════════════════════════════════════
-let currentSlide=0, autoTimer=null;
+// ═══════════════════════════════════════════════════
+let curSlide=0, autoTimer=null;
 
 function renderSlides(){
-  const c=document.getElementById('slides-container');
-  const dots=document.getElementById('slide-dots');
-  c.innerHTML=slides.map((s,i)=>`
-    <div class="pitch-slide ${i===0?'active':''}" id="slide-${i}">
-      <div class="slide-num">${s.num}</div>
-      <div class="slide-emoji">${s.emoji}</div>
-      <div class="slide-title">${s.title}</div>
-      <div class="slide-body">${s.body}</div>
-      <div class="timer-bar" id="tbar-${i}" style="width:0%"></div>
+  document.getElementById('slides-wrap').innerHTML=slides.map((s,i)=>`
+    <div class="slide${i===0?' active':''}" id="sl-${i}">
+      <div class="snum">${s.n}</div>
+      <div class="semoji">${s.e}</div>
+      <div class="stitle2">${s.t}</div>
+      <div class="sbody">${s.b}</div>
+      <div class="tbar" id="tb-${i}" style="width:0%"></div>
     </div>`).join('');
-  dots.innerHTML=slides.map((_,i)=>`<div class="dot ${i===0?'active':''}" data-fn="goToSlide(${i})"></div>`).join('');
+  document.getElementById('dots').innerHTML=slides.map((_,i)=>`<div class="dot${i===0?' active':''}" data-si="${i}"></div>`).join('');
+  document.querySelectorAll('.dot').forEach(d=>{
+    d.addEventListener('click',()=>goSlide(+d.dataset.si));
+  });
+  updateSlideUI();
 }
 
-function goToSlide(n){
-  document.querySelectorAll('.pitch-slide').forEach(s=>s.classList.remove('active'));
+function goSlide(n){
+  document.querySelectorAll('.slide').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.dot').forEach(d=>d.classList.remove('active'));
-  document.getElementById('slide-'+n).classList.add('active');
+  document.getElementById('sl-'+n).classList.add('active');
   document.querySelectorAll('.dot')[n].classList.add('active');
-  document.getElementById('slide-counter').textContent=`Slide ${n+1} of ${slides.length}`;
+  document.getElementById('slide-ctr').textContent='Slide '+(n+1)+' of '+slides.length;
   document.getElementById('prev-btn').disabled=n===0;
   document.getElementById('next-btn').disabled=n===slides.length-1;
-  currentSlide=n;
+  curSlide=n;
 }
 
-function changeSlide(dir){
-  const next=Math.max(0,Math.min(slides.length-1,currentSlide+dir));
-  goToSlide(next);
+function updateSlideUI(){
+  document.getElementById('prev-btn').disabled=curSlide===0;
+  document.getElementById('next-btn').disabled=curSlide===slides.length-1;
+  document.getElementById('slide-ctr').textContent='Slide '+(curSlide+1)+' of '+slides.length;
 }
 
-function startAutoPlay(){
-  stopAutoPlay();
-  goToSlide(0);
-  const perSlide=Math.floor(180000/slides.length);
-  let elapsed=0;
+function startAuto(){
+  stopAuto();goSlide(0);
+  const per=Math.floor(180000/slides.length);
+  let el=0;
   autoTimer=setInterval(()=>{
-    elapsed+=100;
-    const pct=Math.min(100,(elapsed/perSlide)*100);
-    const tb=document.getElementById('tbar-'+currentSlide);
+    el+=100;
+    const pct=Math.min(100,(el/per)*100);
+    const tb=document.getElementById('tb-'+curSlide);
     if(tb) tb.style.width=pct+'%';
-    if(elapsed>=perSlide){
-      elapsed=0;
-      if(currentSlide<slides.length-1){ changeSlide(1); }
-      else { stopAutoPlay(); showToast('Pitch complete! 🎤'); }
-    }
+    if(el>=per){el=0;if(curSlide<slides.length-1){goSlide(curSlide+1);}else{stopAuto();toast('Pitch complete! 🎤');}}
   },100);
-  showToast('Auto-play started — 3 minute pitch timer running');
+  toast('Auto-play started — 3 minute pitch timer running');
 }
 
-function stopAutoPlay(){
-  if(autoTimer){ clearInterval(autoTimer); autoTimer=null; }
-  document.querySelectorAll('.timer-bar').forEach(b=>b.style.width='0%');
+function stopAuto(){
+  if(autoTimer){clearInterval(autoTimer);autoTimer=null;}
+  document.querySelectorAll('.tbar').forEach(b=>b.style.width='0%');
 }
 
-// ══════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════
 // NAVIGATION
-// ══════════════════════════════════════════════════════
-function showPage(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nav-links button:not(.nav-cta)').forEach(b=>b.classList.remove('active'));
-  document.getElementById('page-'+id).classList.add('active');
-  const nb=document.getElementById('nav-'+id);
-  if(nb) nb.classList.add('active');
+// ═══════════════════════════════════════════════════
+const pages={home:'p-home',jobs:'p-jobs',learn:'p-learn',community:'p-community',pitch:'p-pitch',enterprise:'p-enterprise',submit:'p-submit'};
+const navBtns={home:'n-home',jobs:'n-jobs',learn:'n-learn',community:'n-community',pitch:'n-pitch',enterprise:'n-enterprise',submit:'n-submit'};
+
+function goTo(page){
+  Object.values(pages).forEach(id=>document.getElementById(id).classList.remove('active'));
+  Object.values(navBtns).forEach(id=>document.getElementById(id).classList.remove('active'));
+  document.getElementById(pages[page]).classList.add('active');
+  document.getElementById(navBtns[page]).classList.add('active');
+  document.getElementById('navlinks').classList.remove('open');
   window.scrollTo(0,0);
-  document.getElementById('main-nav').classList.remove('open');
 }
 
-function filterJobs(btn,cat){
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+// Wire nav buttons
+Object.keys(navBtns).forEach(page=>{
+  document.getElementById(navBtns[page]).addEventListener('click',()=>goTo(page));
+});
+
+// Wire logo
+document.getElementById('logo').addEventListener('click',()=>goTo('home'));
+
+// Wire hamburger
+document.getElementById('ham').addEventListener('click',()=>{
+  document.getElementById('navlinks').classList.toggle('open');
+});
+
+// Wire home page buttons
+document.getElementById('h-jobs').addEventListener('click',()=>goTo('jobs'));
+document.getElementById('h-learn').addEventListener('click',()=>goTo('learn'));
+document.getElementById('hw-learn').addEventListener('click',()=>goTo('learn'));
+document.getElementById('hw-jobs').addEventListener('click',()=>goTo('jobs'));
+document.getElementById('hw-submit').addEventListener('click',()=>goTo('submit'));
+document.getElementById('h-pitch').addEventListener('click',()=>goTo('pitch'));
+document.getElementById('h-ent').addEventListener('click',()=>goTo('enterprise'));
+document.getElementById('h-sub').addEventListener('click',()=>goTo('submit'));
+document.getElementById('com-pitch').addEventListener('click',()=>goTo('submit'));
+
+// Wire pitch deck buttons
+document.getElementById('prev-btn').addEventListener('click',()=>{if(curSlide>0)goSlide(curSlide-1);});
+document.getElementById('next-btn').addEventListener('click',()=>{if(curSlide<slides.length-1)goSlide(curSlide+1);});
+document.getElementById('autoplay-btn').addEventListener('click',startAuto);
+document.getElementById('stop-btn').addEventListener('click',stopAuto);
+document.getElementById('p-ent-btn').addEventListener('click',()=>goTo('enterprise'));
+
+// Wire footer buttons
+document.getElementById('f-home').addEventListener('click',()=>goTo('home'));
+document.getElementById('f-jobs').addEventListener('click',()=>goTo('jobs'));
+document.getElementById('f-learn').addEventListener('click',()=>goTo('learn'));
+document.getElementById('f-community').addEventListener('click',()=>goTo('community'));
+document.getElementById('f-pitch').addEventListener('click',()=>goTo('pitch'));
+document.getElementById('f-enterprise').addEventListener('click',()=>goTo('enterprise'));
+document.getElementById('f-submit').addEventListener('click',()=>goTo('submit'));
+
+// Job filters
+document.getElementById('filters').addEventListener('click',e=>{
+  const btn=e.target.closest('.fbtn');
+  if(!btn) return;
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  renderJobs(cat);
-}
+  renderJobs(btn.dataset.cat);
+});
 
-function toggleMobileNav(){
-  document.getElementById('main-nav').classList.toggle('open');
-}
-
-// ══════════════════════════════════════════════════════
-// SUBMIT PROJECT
-// ══════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════
+// SUBMIT FORM
+// ═══════════════════════════════════════════════════
 let emailHref='';
 
-function updateChar(inputId,counterId,max){
-  const val=document.getElementById(inputId).value.length;
-  document.getElementById(counterId).textContent=val;
-}
+['f-summary','f-themes','f-rev','f-extra'].forEach(id=>{
+  const cid={'f-summary':'c-summary','f-themes':'c-themes','f-rev':'c-rev','f-extra':'c-extra'}[id];
+  document.getElementById(id).addEventListener('input',()=>{
+    document.getElementById(cid).textContent=document.getElementById(id).value.length;
+  });
+});
 
-function submitProject(){
+document.getElementById('submit-btn').addEventListener('click',()=>{
   const name=document.getElementById('f-name').value.trim();
   const email=document.getElementById('f-email').value.trim();
-  const studentId=document.getElementById('f-studentid').value.trim();
-  const faculty=document.getElementById('f-faculty').value.trim();
+  const sid=document.getElementById('f-sid').value.trim();
+  const fac=document.getElementById('f-fac').value.trim();
   const year=document.getElementById('f-year').value;
-  const projname=document.getElementById('f-projname').value.trim();
+  const pname=document.getElementById('f-pname').value.trim();
   const theme=document.getElementById('f-theme').value;
   const summary=document.getElementById('f-summary').value.trim();
   const themes=document.getElementById('f-themes').value.trim();
-
-  if(!name||!email||!studentId||!faculty||!year||!projname||!theme||!summary||!themes){
-    showToast('⚠️ Please fill in all required fields (*)');
-    return;
-  }
-  if(!email.includes('@')){showToast('⚠️ Please enter a valid email address');return;}
-
+  if(!name||!email||!sid||!fac||!year||!pname||!theme||!summary||!themes){toast('⚠️ Please fill all required fields (*)');return;}
+  if(!email.includes('@')){toast('⚠️ Please enter a valid email');return;}
   const phone=document.getElementById('f-phone').value.trim();
-  const revenue=document.getElementById('f-revenue').value.trim();
+  const rev=document.getElementById('f-rev').value.trim();
   const team=document.getElementById('f-team').value.trim();
   const stage=document.getElementById('f-stage').value;
   const extra=document.getElementById('f-extra').value.trim();
+  const subj=`Hackathon Project Submission: ${pname} — ${name} (${sid})`;
+  const body=`CREATIVE ECONOMY HACKATHON — PROJECT SUBMISSION\nMKU × University of Westminster × ACE\nSubmitted: ${new Date().toLocaleString()}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━\nAPPLICANT DETAILS\n━━━━━━━━━━━━━━━━━━━━━━━━━━\nName: ${name}\nStudent ID: ${sid}\nEmail: ${email}\nPhone: ${phone||'Not provided'}\nFaculty: ${fac}\nYear of Study: ${year}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━\nPROJECT DETAILS\n━━━━━━━━━━━━━━━━━━━━━━━━━━\nProject Name: ${pname}\nPrimary Theme: ${theme}\nProject Stage: ${stage||'Not specified'}\nTeam Members: ${team||'Solo submission'}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━\nPROJECT SUMMARY\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n${summary}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━\nHOW IT ADDRESSES ALL 6 THEMES\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n${themes}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━\nBUSINESS / REVENUE MODEL\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n${rev||'Not provided'}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━\nADDITIONAL INFORMATION\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n${extra||'None'}\n\nSubmitted via EcoTech Youth Platform`;
+  emailHref=`mailto:hackathon@mku.ac.rw,ace@africacreativeenterprise.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}&cc=${encodeURIComponent(email)}`;
+  document.getElementById('form-body').style.display='none';
+  document.getElementById('succ').style.display='block';
+  document.getElementById('succ-msg').textContent=`Your submission for "${pname}" is ready. Click the button below to open your email app — the message is pre-filled and ready to send.`;
+  document.getElementById('email-prev').innerHTML=`<strong>📧 To:</strong> hackathon@mku.ac.rw &amp; ace@africacreativeenterprise.com<br><strong>Subject:</strong> ${subj}<br><strong>CC:</strong> ${email}`;
+});
 
-  const subject=`Hackathon Project Submission: ${projname} — ${name} (${studentId})`;
-  const body=`CREATIVE ECONOMY HACKATHON — PROJECT SUBMISSION
-MKU × University of Westminster × ACE
-Submitted: ${new Date().toLocaleString()}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-APPLICANT DETAILS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Name: ${name}
-Student ID: ${studentId}
-Email: ${email}
-Phone: ${phone||'Not provided'}
-Faculty: ${faculty}
-Year of Study: ${year}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PROJECT DETAILS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Project Name: ${projname}
-Primary Theme: ${theme}
-Project Stage: ${stage||'Not specified'}
-Team Members: ${team||'Solo submission'}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PROJECT SUMMARY
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-${summary}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-HOW IT ADDRESSES ALL 6 HACKATHON THEMES
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-${themes}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BUSINESS / REVENUE MODEL
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-${revenue||'Not provided'}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-ADDITIONAL INFORMATION
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-${extra||'None provided'}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Submitted via EcoTech Youth Platform`;
-
-  const to='hackathon@mku.ac.rw,ace@africacreativeenterprise.com';
-  emailHref=`mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}&cc=${encodeURIComponent(email)}`;
-
-  document.getElementById('submit-form-body').style.display='none';
-  document.getElementById('submit-success').style.display='block';
-  document.getElementById('submit-success-msg').textContent=`Your submission for "${projname}" is ready. Click the button below to open your email app — the message is pre-filled and ready to send to the hackathon panel.`;
-  document.getElementById('email-preview').innerHTML=`
-    <strong>📧 Ready to send to:</strong><br>
-    hackathon@mku.ac.rw &amp; ace@africacreativeenterprise.com<br><br>
-    <strong>Subject:</strong> ${subject}<br><br>
-    <strong>CC to you:</strong> ${email}`;
-}
-
-function openEmail(){ window.location.href=emailHref; }
-
-function resetForm(){
-  ['f-name','f-studentid','f-email','f-phone','f-faculty','f-projname','f-team',
-   'f-summary','f-themes','f-revenue','f-extra'].forEach(id=>document.getElementById(id).value='');
+document.getElementById('email-btn').addEventListener('click',()=>{ window.location.href=emailHref; });
+document.getElementById('reset-btn').addEventListener('click',()=>{
+  ['f-name','f-sid','f-email','f-phone','f-fac','f-pname','f-team','f-summary','f-themes','f-rev','f-extra'].forEach(id=>document.getElementById(id).value='');
   ['f-year','f-theme','f-stage'].forEach(id=>document.getElementById(id).selectedIndex=0);
-  ['char-summary','char-themes','char-revenue','char-extra'].forEach(id=>document.getElementById(id).textContent='0');
-  document.getElementById('submit-form-body').style.display='block';
-  document.getElementById('submit-success').style.display='none';
-}
+  ['c-summary','c-themes','c-rev','c-extra'].forEach(id=>document.getElementById(id).textContent='0');
+  document.getElementById('form-body').style.display='block';
+  document.getElementById('succ').style.display='none';
+});
 
-// ══════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════
 // MODAL
-// ══════════════════════════════════════════════════════
-function openModal(){
+// ═══════════════════════════════════════════════════
+document.getElementById('n-join').addEventListener('click',()=>{
   document.getElementById('modal').classList.add('open');
-  document.getElementById('modal-form').style.display='block';
-  document.getElementById('modal-success').style.display='none';
-}
-function closeModal(){ document.getElementById('modal').classList.remove('open'); }
-function submitJoin(){
-  const name=document.getElementById('modal-name').value.trim();
-  const email=document.getElementById('modal-email').value.trim();
-  if(!name||!email){showToast('Please fill in your name and email');return;}
-  document.getElementById('modal-form').style.display='none';
-  document.getElementById('modal-success').style.display='block';
-}
-document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+  document.getElementById('mform').style.display='block';
+  document.getElementById('msucc').style.display='none';
+});
+document.getElementById('mclose').addEventListener('click',()=>document.getElementById('modal').classList.remove('open'));
+document.getElementById('modal').addEventListener('click',e=>{if(e.target===document.getElementById('modal'))document.getElementById('modal').classList.remove('open');});
+document.getElementById('mjoin').addEventListener('click',()=>{
+  if(!document.getElementById('m-name').value.trim()||!document.getElementById('m-email').value.trim()){toast('Please fill in your name and email');return;}
+  document.getElementById('mform').style.display='none';
+  document.getElementById('msucc').style.display='block';
+});
 
-// ══════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════
 // TOAST
-// ══════════════════════════════════════════════════════
-function showToast(msg){
+// ═══════════════════════════════════════════════════
+function toast(msg){
   const t=document.getElementById('toast');
   t.textContent=msg;t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),3500);
 }
 
-// ══════════════════════════════════════════════════════
-// ── EVENT DISPATCHER ──
-document.addEventListener('click', function(e) {
-  const el = e.target.closest('[data-fn]');
-  if (!el) return;
-  const fn = el.getAttribute('data-fn');
-  if (!fn) return;
-  const m = fn.match(/^(\w+)\((.*)\)$/s);
-  if (!m) return;
-  const name = m[1];
-  const rawArgs = m[2].trim();
-  let args = [];
-  if (rawArgs) {
-    const parts = rawArgs.match(/(?:[^,'"`]|'[^']*'|"[^"]*"|`[^`]*`)+/g) || [];
-    args = parts.map(a => {
-      a = a.trim();
-      if ((a.startsWith("'")&&a.endsWith("'"))||(a.startsWith('"')&&a.endsWith('"'))) return a.slice(1,-1);
-      if (a === 'this') return el;
-      return isNaN(a) ? a : Number(a);
-    });
-  }
-  const func = window[name];
-  if (typeof func === 'function') { e.preventDefault(); func(...args); }
-});
-
-// ── INIT ──
-// ══════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════
 renderJobs();
 renderCourses();
 renderCommunity();
