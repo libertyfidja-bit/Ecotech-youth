@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pitch Deck — EcoTech Youth</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav>
+  <div class="logo" onclick="window.location='index.html'">🌿 <span>EcoTech</span>Youth</div>
+  <button class="ham" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+  <ul id="navlinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="jobs.html">Green Jobs</a></li>
+    <li><a href="learn.html">Learn</a></li>
+    <li><a href="community.html">Community</a></li>
+    <li><a href="pitch.html" class="active">Pitch Deck</a></li>
+    <li><a href="enterprise.html">Business Model</a></li>
+    <li><a href="submit.html">Submit Project</a></li>
+    <li><a href="index.html#" class="cta">Join Free</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <div class="section-label">Hackathon Pitch Deck</div>
+    <h1>EcoTech Youth — 3-Minute Pitch</h1>
+    <p>Our full presentation for the MKU × UW × ACE Creative Economy Hackathon. Navigate slide by slide or hit Auto-Play for the full timed pitch.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="slide-nav">
+      <button class="ghost-btn" id="prev-btn" disabled>← Previous</button>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.6rem">
+        <div class="slide-counter" id="slide-ctr">Slide 1 of 7</div>
+        <div class="dots" id="dots"></div>
+      </div>
+      <button class="ghost-btn" id="next-btn">Next →</button>
+    </div>
+    <div id="slides-wrap"></div>
+    <div class="slide-controls">
+      <button class="btn-solid" id="autoplay-btn">▶ Auto-Play (3 min)</button>
+      <button class="ghost-btn" id="stop-btn">⏹ Stop</button>
+      <a href="enterprise.html" class="btn-earth">📊 View Business Model →</a>
+    </div>
+  </div>
+</section>
+
+<div class="toast" id="toast"></div>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a><a href="jobs.html">Green Jobs</a>
+    <a href="learn.html">Learn</a><a href="community.html">Community</a>
+    <a href="pitch.html">Pitch Deck</a><a href="enterprise.html">Business Model</a>
+    <a href="submit.html">Submit Project</a>
+  </div>
+  <p class="footer-copy">🌿 EcoTech Youth · Built for MKU × University of Westminster × ACE Creative Economy Hackathon · 27 November 2024</p>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+const SLIDES = [
+  { n:'01 / 07', e:'🌿', t:'The Problem',
+    b:`<p>Rwanda has thousands of talented, ambitious young people. Yet:</p>
+    <ul><li>Green economy jobs exist — but youth <strong>cannot find them</strong></li>
+    <li>Tech and creative skills exist — but no clear pathway to eco-employers</li>
+    <li>Community eco-ideas exist everywhere — but <strong>lack funding and mentorship</strong></li>
+    <li>No single platform connects <em>technology + environment + youth employment</em></li></ul>
+    <p style="margin-top:1rem;opacity:.8;font-size:.9rem">Result: talent is wasted, the green economy grows without youth, and unemployment stays high.</p>` },
+  { n:'02 / 07', e:'💡', t:'The Solution — EcoTech Youth',
+    b:`<p>A mobile and web platform connecting young Rwandans to <strong>green jobs, skills, and community project support</strong> — all in one place.</p>
+    <div class="slide-cols">
+      <div class="slide-col"><h4>🎓 Learn</h4><p>12 free micro-courses in green tech, eco-business and environmental skills — built for Rwandan youth</p></div>
+      <div class="slide-col"><h4>💼 Connect</h4><p>Green job board with 8+ listings in clean energy, agri, media and education — with full details and Apply Now</p></div>
+    </div>
+    <div class="slide-cols" style="margin-top:1rem">
+      <div class="slide-col"><h4>🤝 Build</h4><p>Community project marketplace — pitch eco-solutions, get funded, find collaborators and mentors</p></div>
+      <div class="slide-col"><h4>📧 Submit</h4><p>Hackathon submission tool — pitch directly to judges from inside the platform</p></div>
+    </div>` },
+  { n:'03 / 07', e:'🏆', t:'How It Hits All 6 Themes',
+    b:`<ul>
+    <li><strong>🎨 Creativity & Entrepreneurship</strong> — turning youth skills into real, fundable green enterprises</li>
+    <li><strong>💼 Job Creation & Economic Growth</strong> — direct green economy employment, 200 verified jobs target in Year 1</li>
+    <li><strong>🧠 Mental Health & Wellbeing</strong> — purposeful, income-generating work builds confidence and reduces anxiety</li>
+    <li><strong>🤝 Community Impact</strong> — local eco-projects funded, mentored and tracked on the platform</li>
+    <li><strong>🏛️ Culture & Heritage</strong> — all content and stories told through a Rwandan lens in local languages</li>
+    <li><strong>🌍 Environmental Sustainability</strong> — the entire platform's core mission; every job, course and project must show environmental benefit</li></ul>` },
+  { n:'04 / 07', e:'💰', t:'Business Model',
+    b:`<div class="slide-cols">
+      <div class="slide-col"><h4>Revenue Streams</h4><p>• Employer subscriptions — RWF 150k/mo<br>• Paid training cohorts — RWF 80k each<br>• NGO & govt contracts — RWF 500k each<br>• Impact data reports — RWF 50k each<br>• Sponsored listings — RWF 20k each</p></div>
+      <div class="slide-col"><h4>Year 1 Financials</h4><p>• Revenue target: RWF 45,000,000<br>• Total costs: RWF 26,900,000<br>• Net surplus: RWF 18,100,000<br>• Self-sustaining from Month 7<br>• Zero donor dependency</p></div>
+    </div>` },
+  { n:'05 / 07', e:'📊', t:'Proof & Traction',
+    b:`<div class="slide-cols">
+      <div class="slide-col"><h4>What We've Built</h4><p>✅ Working platform — live today<br>✅ 8 green job listings, 4 categories<br>✅ 12 full courses with syllabuses<br>✅ 6 community projects with stories<br>✅ Hackathon submission tool<br>✅ Full enterprise model dashboard</p></div>
+      <div class="slide-col"><h4>Year 1 Targets</h4><p>• 1,000 registered youth users<br>• 200 verified green job placements<br>• 500 course completions<br>• 50 tonnes CO₂ offset<br>• 18 districts reached across Rwanda</p></div>
+    </div>` },
+  { n:'06 / 07', e:'🗺️', t:'Growth Roadmap',
+    b:`<ul>
+    <li><strong>Months 1–6 (Launch):</strong> 300 users · 50+ jobs listed · 3 NGO partners · 2 paid training cohorts · 30 job placements · apply for MINECOFIN youth grant</li>
+    <li><strong>Months 7–18 (Scale):</strong> 1,000 users · 5 districts · employer subscriptions live · government endorsement from REMA · mobile app launch (Android-first)</li>
+    <li><strong>Year 2+ (Expand):</strong> Uganda, Kenya, Tanzania · license to 3 universities · EcoTech Youth Fellowship launched · Series A fundraise · 10,000 users across East Africa</li></ul>
+    <p style="margin-top:1rem;opacity:.85;font-size:.88rem">Every phase is funded by the previous phase's surplus — no dependency on external grants to scale.</p>` },
+  { n:'07 / 07', e:'🚀', t:'Why Back EcoTech Youth?',
+    b:`<p>We're not just pitching an idea — <strong>we've built it and it's live right now.</strong></p>
+    <p style="margin-top:.75rem">As a Computer Science student at Mount Kigali University, I can build, maintain and scale this platform. The technical barrier that stops most social enterprise ideas from becoming real products is <strong>not a barrier here.</strong></p>
+    <p style="margin-top:.75rem">EcoTech Youth is Rwanda's bridge between young talent and the green economy. The platform is free for youth, sustainable from employer revenue, and designed to grow beyond Rwanda into East Africa.</p>
+    <p style="margin-top:1rem;font-style:italic;font-size:1.05rem">"Invest in our youth — invest in our future."</p>` }
+];
+
+let cur = 0, timer = null;
+
+function renderSlides() {
+  document.getElementById('slides-wrap').innerHTML = SLIDES.map((s, i) => `
+    <div class="slide${i === 0 ? ' active' : ''}" id="sl-${i}">
+      <div class="slide-num">${s.n}</div>
+      <div class="slide-emoji">${s.e}</div>
+      <div class="slide-title">${s.t}</div>
+      <div class="slide-body">${s.b}</div>
+      <div class="timer-bar" id="tb-${i}" style="width:0%"></div>
+    </div>`).join('');
+  document.getElementById('dots').innerHTML = SLIDES.map((_, i) => `
+    <div class="dot${i === 0 ? ' active' : ''}" data-i="${i}"></div>`).join('');
+  document.querySelectorAll('.dot').forEach(d => d.addEventListener('click', () => goTo(+d.dataset.i)));
+  updateNav();
+}
+
+function goTo(n) {
+  document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+  document.getElementById('sl-' + n).classList.add('active');
+  document.querySelectorAll('.dot')[n].classList.add('active');
+  document.getElementById('slide-ctr').textContent = 'Slide ' + (n + 1) + ' of ' + SLIDES.length;
+  cur = n; updateNav();
+}
+
+function updateNav() {
+  document.getElementById('prev-btn').disabled = cur === 0;
+  document.getElementById('next-btn').disabled = cur === SLIDES.length - 1;
+}
+
+function startAuto() {
+  stopAuto(); goTo(0);
+  const per = Math.floor(180000 / SLIDES.length); let el = 0;
+  timer = setInterval(() => {
+    el += 100;
+    const pct = Math.min(100, (el / per) * 100);
+    const tb = document.getElementById('tb-' + cur);
+    if (tb) tb.style.width = pct + '%';
+    if (el >= per) {
+      el = 0;
+      if (cur < SLIDES.length - 1) goTo(cur + 1);
+      else { stopAuto(); showToast('Pitch complete! Great job 🎤'); }
+    }
+  }, 100);
+  showToast('Auto-play started — 3 minute pitch timer running ▶');
+}
+
+function stopAuto() {
+  if (timer) { clearInterval(timer); timer = null; }
+  document.querySelectorAll('.timer-bar').forEach(b => b.style.width = '0%');
+}
+
+document.getElementById('prev-btn').addEventListener('click', () => { if (cur > 0) goTo(cur - 1); });
+document.getElementById('next-btn').addEventListener('click', () => { if (cur < SLIDES.length - 1) goTo(cur + 1); });
+document.getElementById('autoplay-btn').addEventListener('click', startAuto);
+document.getElementById('stop-btn').addEventListener('click', stopAuto);
+
+renderSlides();
+</script>
+</body>
+</html>

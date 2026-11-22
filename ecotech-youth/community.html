@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Community Projects — EcoTech Youth</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav>
+  <div class="logo" onclick="window.location='index.html'">🌿 <span>EcoTech</span>Youth</div>
+  <button class="ham" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+  <ul id="navlinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="jobs.html">Green Jobs</a></li>
+    <li><a href="learn.html">Learn</a></li>
+    <li><a href="community.html" class="active">Community</a></li>
+    <li><a href="pitch.html">Pitch Deck</a></li>
+    <li><a href="enterprise.html">Business Model</a></li>
+    <li><a href="submit.html">Submit Project</a></li>
+    <li><a href="index.html#" class="cta">Join Free</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <div class="section-label">Community Projects</div>
+    <h1>Youth-Led Eco-Solutions Across Rwanda</h1>
+    <p>Browse active community projects, support them financially, or pitch your own idea to get funded and mentored.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div style="margin-bottom:2rem">
+      <a href="submit.html" class="btn-solid">+ Pitch Your Own Project</a>
+    </div>
+    <div class="community-grid" id="community-grid"></div>
+  </div>
+</section>
+
+<!-- PROJECT DETAIL MODAL -->
+<div class="modal-overlay" id="proj-modal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('proj-modal').classList.remove('open')">✕</button>
+    <div class="modal-header">
+      <div class="modal-icon" id="pm-icon"></div>
+      <div>
+        <div class="modal-title" id="pm-title" style="font-size:1.2rem;margin-bottom:.2rem"></div>
+        <div style="font-size:.85rem;color:var(--is)" id="pm-auth"></div>
+      </div>
+    </div>
+    <div class="project-stats">
+      <div class="proj-stat"><span class="proj-stat-num" id="pm-raised"></span><span class="proj-stat-lbl">Raised</span></div>
+      <div class="proj-stat"><span class="proj-stat-num" id="pm-goal"></span><span class="proj-stat-lbl">Goal</span></div>
+      <div class="proj-stat"><span class="proj-stat-num" id="pm-sup"></span><span class="proj-stat-lbl">Supporters</span></div>
+    </div>
+    <div style="margin:1rem 0">
+      <div style="display:flex;justify-content:space-between;font-size:.85rem;margin-bottom:.4rem">
+        <span id="pm-pct-lbl" style="font-weight:600;color:var(--gm)"></span>
+        <span id="pm-dl" style="color:var(--is)"></span>
+      </div>
+      <div class="fund-bar" style="height:10px;border-radius:100px;overflow:hidden;background:var(--gl2)">
+        <div class="fund-fill" id="pm-fill"></div>
+      </div>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-label">About This Project</div>
+      <p id="pm-desc" style="font-size:.9rem;color:var(--is);line-height:1.6"></p>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-label">The Problem Being Solved</div>
+      <p id="pm-problem" style="font-size:.9rem;color:var(--is);line-height:1.6"></p>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-label">Impact So Far</div>
+      <ul class="modal-list" id="pm-impact"></ul>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-label">How Your Support Helps</div>
+      <p id="pm-help" style="font-size:.9rem;color:var(--is);line-height:1.6"></p>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-solid" onclick="showToast('Thank you for your support! ❤️ Payment processing coming soon.'); document.getElementById('proj-modal').classList.remove('open')">❤️ Support This Project</button>
+      <button class="ghost-btn" onclick="document.getElementById('proj-modal').classList.remove('open')">Close</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a><a href="jobs.html">Green Jobs</a>
+    <a href="learn.html">Learn</a><a href="community.html">Community</a>
+    <a href="pitch.html">Pitch Deck</a><a href="enterprise.html">Business Model</a>
+    <a href="submit.html">Submit Project</a>
+  </div>
+  <p class="footer-copy">🌿 EcoTech Youth · Built for MKU × University of Westminster × ACE Creative Economy Hackathon · 27 November 2024</p>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+const PROJECTS = [
+  { e:'🗑️', bg:'#fff0d8', title:'Kigali Clean Streets Initiative', auth:'by Amina Uwimana · Kigali',
+    desc:'Youth-led waste collection and recycling program turning plastic waste into crafts and income for 15 young people in Kimironko.',
+    pct:72, goal:'RWF 500,000', raised:'RWF 360,000', sup:34, dl:'Campaign ends Dec 31',
+    problem:'Kimironko market generates over 2 tonnes of plastic waste weekly with no formal collection system. Youth unemployment in the area is at 38%. This project solves both problems simultaneously.',
+    impact:['15 youth employed as waste collectors and craft makers','2.3 tonnes of plastic diverted from landfill in 3 months','12 schools supplied with recycled plastic furniture','Featured in The New Times Rwanda as a youth innovation story'],
+    help:'Every RWF 10,000 donated funds one youth worker for a week, covering tools, transport and a living stipend while they build toward self-sustainability.' },
+  { e:'🌿', bg:'#f0faf4', title:'School Garden Network', auth:'by Jean-Claude Habimana · Musanze',
+    desc:'Building eco-gardens in 10 secondary schools, teaching students sustainable food growing while improving school nutrition and reducing food costs.',
+    pct:45, goal:'RWF 800,000', raised:'RWF 360,000', sup:21, dl:'Campaign ends Jan 15',
+    problem:'Many secondary schools in Musanze serve students one meal per day — often nutritionally poor. Students leave school with no practical agricultural skills despite agriculture being Rwanda\'s largest employer.',
+    impact:['3 schools already have functioning gardens producing food','420 students trained in organic growing techniques','Estimated 15% reduction in school food costs where gardens are active','2 teachers certified as sustainable agriculture trainers'],
+    help:'RWF 50,000 funds one complete school garden bed including seeds, tools, irrigation tubing and ongoing mentoring for the student eco-club that runs it.' },
+  { e:'☀️', bg:'#fff9e6', title:'Rural Solar Lighting Project', auth:'by Grace Mukantwali · Nyanza',
+    desc:'Installing solar-powered streetlights in 3 rural villages, trained and maintained by local youth earning a monthly stipend.',
+    pct:88, goal:'RWF 1,200,000', raised:'RWF 1,056,000', sup:67, dl:'Almost funded!',
+    problem:'Three villages in Nyanza sector have no street lighting, making evening movement — especially for women and girls — unsafe. Children cannot study after dark. Local businesses close at sunset.',
+    impact:['24 solar streetlights installed across 2 villages so far','6 youth trained as solar technicians earning RWF 40,000/mo','60% increase in evening market activity reported','Girls\' school attendance up 18% since lighting installed'],
+    help:'We are 88% funded! Just RWF 144,000 more completes the third village. Every contribution goes directly to the final installation and 6-month maintenance fund.' },
+  { e:'📸', bg:'#f0f4ff', title:'Rwanda Green Voices — Media Collective', auth:'by Patrick Nkurunziza · Kigali',
+    desc:'A youth media collective documenting Rwanda\'s environmental heritage through photography and short documentary films.',
+    pct:30, goal:'RWF 400,000', raised:'RWF 120,000', sup:18, dl:'Campaign ends Feb 1',
+    problem:'Rwanda\'s extraordinary natural heritage is underrepresented in locally produced media. International outlets tell Rwanda\'s environmental story while Rwandan youth creators lack equipment and platforms.',
+    impact:['4 short documentary films produced and published on YouTube','3 photography exhibitions held in Kigali with 800+ attendees','2 young photographers placed in paid freelance roles','Partnership secured with Visit Rwanda for content distribution'],
+    help:'Funds go directly to camera equipment, film editing software licenses, and stipends for 8 young documentary makers during their 3-month production cycle.' },
+  { e:'🌳', bg:'#e8f5d0', title:'Nyamirambo Urban Forest Initiative', auth:'by Claudine Mukamana · Kigali',
+    desc:'Planting 5,000 trees in Nyamirambo\'s urban corridors to reduce heat, improve air quality and create green spaces for community wellbeing.',
+    pct:55, goal:'RWF 600,000', raised:'RWF 330,000', sup:42, dl:'Campaign ends Jan 30',
+    problem:'Nyamirambo is one of Kigali\'s most densely populated areas with minimal green cover. Urban heat is increasing, air quality is declining and youth have no green spaces for recreation and mental health.',
+    impact:['1,800 trees planted across 6 streets so far','30 youth trained as urban foresters and paid as tree wardens','3 community gardens established alongside tree planting sites','Partnership signed with Kigali City for maintenance support'],
+    help:'RWF 15,000 plants, stakes and waters one tree for its first year of establishment. Your contribution directly grows Kigali\'s green canopy.' },
+  { e:'🐟', bg:'#e8f4fd', title:'Lake Kivu Youth Fishers Cooperative', auth:'by Innocent Nshimiyimana · Rubavu',
+    desc:'Training young fishers on sustainable fishing practices and connecting them directly to Kigali markets — cutting out middlemen and doubling their income.',
+    pct:38, goal:'RWF 1,000,000', raised:'RWF 380,000', sup:29, dl:'Campaign ends Feb 15',
+    problem:'Lake Kivu fishing communities are caught in a cycle of overfishing and poverty. Youth leave for cities while fish stocks decline. Sustainable practices exist but are not reaching young fishers.',
+    impact:['45 young fishers trained in sustainable fishing and catch limits','Direct market links established with 3 Kigali restaurants and 2 supermarkets','Average fisher income increased by 65% through direct sales','Lake monitoring programme launched with REMA partnership'],
+    help:'RWF 20,000 funds one young fisher\'s training, sustainable fishing kit and market registration — giving them the tools to build a viable livelihood without harming the lake.' }
+];
+
+function renderProjects() {
+  document.getElementById('community-grid').innerHTML = PROJECTS.map((p, i) => `
+    <div class="card clickable" data-pi="${i}" style="display:flex;flex-direction:column;gap:.75rem">
+      <div class="project-head">
+        <div class="project-icon" style="background:${p.bg}">${p.e}</div>
+        <div><div class="project-title">${p.title}</div><div class="project-author">${p.auth}</div></div>
+      </div>
+      <p style="font-size:.88rem;color:var(--is);line-height:1.5;flex:1">${p.desc}</p>
+      <div class="fund-row">
+        <div><div class="fund-pct">${p.pct}%</div><div class="fund-lbl">${p.raised} raised</div></div>
+        <div class="fund-bar"><div class="fund-fill" style="width:${p.pct}%"></div></div>
+        <div style="text-align:right"><div style="font-size:.78rem;color:var(--is)">${p.sup} supporters</div></div>
+      </div>
+      <button class="btn-solid">View Project & Support →</button>
+    </div>`).join('');
+  document.querySelectorAll('#community-grid .card').forEach(card => {
+    card.addEventListener('click', () => openProject(+card.dataset.pi));
+  });
+}
+
+function openProject(i) {
+  const p = PROJECTS[i];
+  document.getElementById('pm-icon').textContent = p.e;
+  document.getElementById('pm-icon').style.background = p.bg;
+  document.getElementById('pm-title').textContent = p.title;
+  document.getElementById('pm-auth').textContent = p.auth;
+  document.getElementById('pm-raised').textContent = p.raised;
+  document.getElementById('pm-goal').textContent = p.goal;
+  document.getElementById('pm-sup').textContent = p.sup + ' people';
+  document.getElementById('pm-pct-lbl').textContent = p.pct + '% funded';
+  document.getElementById('pm-dl').textContent = p.dl;
+  document.getElementById('pm-fill').style.width = p.pct + '%';
+  document.getElementById('pm-desc').textContent = p.desc;
+  document.getElementById('pm-problem').textContent = p.problem;
+  document.getElementById('pm-impact').innerHTML = p.impact.map(im => `<li>${im}</li>`).join('');
+  document.getElementById('pm-help').textContent = p.help;
+  document.getElementById('proj-modal').classList.add('open');
+}
+
+renderProjects();
+</script>
+</body>
+</html>
