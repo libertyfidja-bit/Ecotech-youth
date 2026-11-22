@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Submit Project — EcoTech Youth</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav>
+  <div class="logo" onclick="window.location='index.html'">🌿 <span>EcoTech</span>Youth</div>
+  <button class="ham" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+  <ul id="navlinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="jobs.html">Green Jobs</a></li>
+    <li><a href="learn.html">Learn</a></li>
+    <li><a href="community.html">Community</a></li>
+    <li><a href="pitch.html">Pitch Deck</a></li>
+    <li><a href="enterprise.html">Business Model</a></li>
+    <li><a href="submit.html" class="active">Submit Project</a></li>
+    <li><a href="index.html#" class="cta">Join Free</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <div class="section-label">Submit Your Project</div>
+    <h1>Pitch Your Idea to the Hackathon Panel</h1>
+    <p>Fill in the form below — your submission will be sent directly to the hackathon organisers at <strong>hackathon@mku.ac.rw</strong> and <strong>ace@africacreativeenterprise.com</strong>.</p>
+  </div>
+</div>
+
+<section>
+  <div class="form-wrap">
+    <div id="form-body">
+      <div class="info-box">
+        📋 <strong>Hackathon brief:</strong> Teams develop and pitch a creative economy business concept addressing jobs, growth, mental health, wellbeing, and sustainability in Rwanda. Pitches are 3 minutes. Judging covers Innovation, Viability, Wellbeing Impact, Cultural Impact, and Pitch Quality — 20% each.
+      </div>
+
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Your Full Name *</label><input class="form-input" id="f-name" type="text" placeholder="e.g. Jean-Paul Nkurunziza"></div>
+        <div class="form-group"><label class="form-label">Student ID *</label><input class="form-input" id="f-sid" type="text" placeholder="e.g. MKU2024/CS/001"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Your Email Address *</label><input class="form-input" id="f-email" type="email" placeholder="yourname@mku.ac.rw"></div>
+        <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" id="f-phone" type="tel" placeholder="+250 7XX XXX XXX"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Faculty / Department *</label><input class="form-input" id="f-fac" type="text" placeholder="e.g. Computer Science"></div>
+        <div class="form-group"><label class="form-label">Year of Study *</label>
+          <select class="form-select" id="f-year"><option value="">Select year…</option><option>Year 1</option><option>Year 2</option><option>Year 3</option><option>Year 4</option><option>Postgraduate</option></select>
+        </div>
+      </div>
+      <div class="form-group"><label class="form-label">Project / Business Name *</label><input class="form-input" id="f-pname" type="text" placeholder="e.g. EcoTech Youth"></div>
+      <div class="form-group"><label class="form-label">Primary Theme *</label>
+        <select class="form-select" id="f-theme">
+          <option value="">Select the main theme…</option>
+          <option>Creativity & Entrepreneurship</option>
+          <option>Job Creation & Economic Growth</option>
+          <option>Mental Health & Wellbeing</option>
+          <option>Community Impact</option>
+          <option>Culture & Heritage</option>
+          <option>Environmental Sustainability</option>
+          <option>Multi-theme (combines all 6)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Project Summary (the problem & your solution) *</label>
+        <textarea class="form-textarea" id="f-summary" maxlength="500" placeholder="Describe the problem you are solving and your creative solution in 2–4 sentences…"></textarea>
+        <div class="char-count"><span id="c-summary">0</span>/500</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">How does it address all 6 hackathon themes? *</label>
+        <textarea class="form-textarea" id="f-themes" maxlength="600" placeholder="Explain briefly how your project touches on creativity, jobs, mental health, community, culture, and environment…"></textarea>
+        <div class="char-count"><span id="c-themes">0</span>/600</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">How does the business make money?</label>
+        <textarea class="form-textarea" id="f-rev" style="min-height:90px" maxlength="400" placeholder="Describe your revenue model — subscriptions, partnerships, fees, grants…"></textarea>
+        <div class="char-count"><span id="c-rev">0</span>/400</div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Team Members (if any)</label><input class="form-input" id="f-team" type="text" placeholder="Names separated by commas"></div>
+        <div class="form-group"><label class="form-label">Project Stage</label>
+          <select class="form-select" id="f-stage"><option value="">Select stage…</option><option>Idea / Concept</option><option>Prototype / Demo built</option><option>Pilot / Testing</option><option>Early stage — some users</option></select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Anything else you want the judges to know?</label>
+        <textarea class="form-textarea" id="f-extra" style="min-height:80px" maxlength="300" placeholder="Optional — unique strengths, your inspiration, what support you need…"></textarea>
+        <div class="char-count"><span id="c-extra">0</span>/300</div>
+      </div>
+      <div class="info-box-grey">
+        📧 On submission, your project details will be prepared for you to send to:<br>
+        <strong style="color:var(--ink)">hackathon@mku.ac.rw</strong> and <strong style="color:var(--ink)">ace@africacreativeenterprise.com</strong><br>
+        Deadline: <strong style="color:var(--gm)">Friday 27 November 2024, 12:00 noon</strong>
+      </div>
+      <button class="btn-submit" id="submit-btn">📧 Submit My Project to Hackathon</button>
+    </div>
+
+    <div class="success-box" id="succ" style="display:none">
+      <span class="big-icon">🎉</span>
+      <h3>Project Submitted!</h3>
+      <p id="succ-msg" style="color:var(--is);max-width:420px;margin:.5rem auto 2rem">Your project is ready. Click below to open your email app — the message is pre-filled and ready to send.</p>
+      <div class="btn-row">
+        <button class="btn-solid" id="email-btn">📧 Open in Email App</button>
+        <button class="ghost-btn" id="reset-btn">Submit Another</button>
+      </div>
+      <div class="email-preview" id="email-prev"></div>
+    </div>
+  </div>
+</section>
+
+<div class="toast" id="toast"></div>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a><a href="jobs.html">Green Jobs</a>
+    <a href="learn.html">Learn</a><a href="community.html">Community</a>
+    <a href="pitch.html">Pitch Deck</a><a href="enterprise.html">Business Model</a>
+    <a href="submit.html">Submit Project</a>
+  </div>
+  <p class="footer-copy">🌿 EcoTech Youth · Built for MKU × University of Westminster × ACE Creative Economy Hackathon · 27 November 2024</p>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+let emailHref = '';
+const v = id => document.getElementById(id).value.trim();
+
+[['f-summary','c-summary'],['f-themes','c-themes'],['f-rev','c-rev'],['f-extra','c-extra']].forEach(([fid,cid]) => {
+  document.getElementById(fid).addEventListener('input', () => {
+    document.getElementById(cid).textContent = document.getElementById(fid).value.length;
+  });
+});
+
+document.getElementById('submit-btn').addEventListener('click', () => {
+  if (!v('f-name')||!v('f-email')||!v('f-sid')||!v('f-fac')||
+      !document.getElementById('f-year').value||!v('f-pname')||
+      !document.getElementById('f-theme').value||!v('f-summary')||!v('f-themes')) {
+    showToast('⚠️ Please fill all required fields (*)'); return;
+  }
+  if (!v('f-email').includes('@')) { showToast('⚠️ Please enter a valid email address'); return; }
+
+  const subj = `Hackathon Project Submission: ${v('f-pname')} — ${v('f-name')} (${v('f-sid')})`;
+  const body = `CREATIVE ECONOMY HACKATHON — PROJECT SUBMISSION
+MKU × University of Westminster × ACE
+Submitted: ${new Date().toLocaleString()}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+APPLICANT DETAILS
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+Name: ${v('f-name')}
+Student ID: ${v('f-sid')}
+Email: ${v('f-email')}
+Phone: ${v('f-phone') || 'Not provided'}
+Faculty: ${v('f-fac')}
+Year of Study: ${document.getElementById('f-year').value}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+PROJECT DETAILS
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+Project Name: ${v('f-pname')}
+Primary Theme: ${document.getElementById('f-theme').value}
+Project Stage: ${document.getElementById('f-stage').value || 'Not specified'}
+Team Members: ${v('f-team') || 'Solo submission'}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+PROJECT SUMMARY
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+${v('f-summary')}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+HOW IT ADDRESSES ALL 6 THEMES
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+${v('f-themes')}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+BUSINESS / REVENUE MODEL
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+${v('f-rev') || 'Not provided'}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+ADDITIONAL INFORMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+${v('f-extra') || 'None'}
+
+Submitted via EcoTech Youth Platform`;
+
+  emailHref = `mailto:hackathon@mku.ac.rw,ace@africacreativeenterprise.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}&cc=${encodeURIComponent(v('f-email'))}`;
+  document.getElementById('form-body').style.display = 'none';
+  document.getElementById('succ').style.display = 'block';
+  document.getElementById('succ-msg').textContent = `Your submission for "${v('f-pname')}" is ready. Click below to open your email app — the message is pre-filled and ready to send to the judges.`;
+  document.getElementById('email-prev').innerHTML = `<strong>📧 To:</strong> hackathon@mku.ac.rw &amp; ace@africacreativeenterprise.com<br><strong>Subject:</strong> ${subj}<br><strong>CC:</strong> ${v('f-email')}`;
+});
+
+document.getElementById('email-btn').addEventListener('click', () => { window.location.href = emailHref; });
+document.getElementById('reset-btn').addEventListener('click', () => {
+  ['f-name','f-sid','f-email','f-phone','f-fac','f-pname','f-team','f-summary','f-themes','f-rev','f-extra'].forEach(id => document.getElementById(id).value = '');
+  ['f-year','f-theme','f-stage'].forEach(id => document.getElementById(id).selectedIndex = 0);
+  ['c-summary','c-themes','c-rev','c-extra'].forEach(id => document.getElementById(id).textContent = '0');
+  document.getElementById('form-body').style.display = 'block';
+  document.getElementById('succ').style.display = 'none';
+});
+</script>
+</body>
+</html>

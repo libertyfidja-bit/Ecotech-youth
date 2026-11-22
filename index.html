@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EcoTech Youth — Rwanda's Green Economy Platform</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav>
+  <div class="logo" onclick="window.location='index.html'">🌿 <span>EcoTech</span>Youth</div>
+  <button class="ham" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+  <ul id="navlinks">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="jobs.html">Green Jobs</a></li>
+    <li><a href="learn.html">Learn</a></li>
+    <li><a href="community.html">Community</a></li>
+    <li><a href="pitch.html">Pitch Deck</a></li>
+    <li><a href="enterprise.html">Business Model</a></li>
+    <li><a href="submit.html">Submit Project</a></li>
+    <li><a href="#" class="cta" onclick="document.getElementById('join-modal').classList.add('open')">Join Free</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <span class="badge">🇷🇼 Built for Rwanda's Green Economy</span>
+    <h1>Turn Your Talent Into<br>a Green Career</h1>
+    <p>EcoTech Youth connects young Rwandans to green jobs, skills and community projects — building a sustainable future together.</p>
+    <div class="hero-btns">
+      <a href="jobs.html" class="btn-primary">Browse Green Jobs</a>
+      <a href="learn.html" class="btn-outline">Start Learning</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="num">340+</span><span class="lbl">Green Jobs Listed</span></div>
+      <div class="stat"><span class="num">1,200</span><span class="lbl">Youth Registered</span></div>
+      <div class="stat"><span class="num">48</span><span class="lbl">Community Projects</span></div>
+      <div class="stat"><span class="num">12</span><span class="lbl">Partner Organisations</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="light-bg">
+  <div class="container">
+    <div class="section-label">How it works</div>
+    <h2>Your journey from talent to green enterprise</h2>
+    <div class="card-grid">
+      <div class="card accent-green">
+        <div class="card-icon">🎓</div>
+        <h3>Learn</h3>
+        <p>Free micro-courses on tech skills, environmental entrepreneurship, and green business — built for Rwandan youth.</p>
+        <a href="learn.html" class="btn-green">Go to Learning Hub →</a>
+      </div>
+      <div class="card accent-earth">
+        <div class="card-icon">💼</div>
+        <h3>Connect</h3>
+        <p>Browse green jobs from NGOs, eco-startups and government programs actively hiring youth talent today.</p>
+        <a href="jobs.html" class="btn-green">View Jobs →</a>
+      </div>
+      <div class="card accent-blue">
+        <div class="card-icon">🤝</div>
+        <h3>Build</h3>
+        <p>Pitch your community eco-project, find collaborators, and access funding and mentoring support.</p>
+        <a href="submit.html" class="btn-green">Submit Your Project →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT STRIP -->
+<div class="impact-strip">
+  <div class="container impact-grid">
+    <div><span class="inum">847</span><span class="ilbl">Young people placed in green jobs</span></div>
+    <div><span class="inum">23T</span><span class="ilbl">Tonnes of CO₂ offset by community projects</span></div>
+    <div><span class="inum">94%</span><span class="ilbl">Report improved mental wellbeing</span></div>
+    <div><span class="inum">18</span><span class="ilbl">Districts reached across Rwanda</span></div>
+  </div>
+</div>
+
+<!-- HACKATHON SECTION -->
+<section>
+  <div class="container text-center">
+    <div class="section-label">Hackathon Project</div>
+    <h2>Built for the Creative Economy Hackathon</h2>
+    <p class="sub-text">MKU × University of Westminster × ACE Creative Economy Hackathon — 27 November 2024</p>
+    <div class="btn-row">
+      <a href="pitch.html" class="btn-green">🎤 View Pitch Deck</a>
+      <a href="enterprise.html" class="btn-earth">📊 Business Model</a>
+      <a href="submit.html" class="btn-blue">📧 Submit Project</a>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN MODAL -->
+<div class="modal-overlay" id="join-modal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('join-modal').classList.remove('open')">✕</button>
+    <div id="join-form">
+      <h3>Join EcoTech Youth</h3>
+      <p>Connect to Rwanda's green economy — free for all youth.</p>
+      <input type="text" id="jn" placeholder="Full name" class="form-input">
+      <input type="email" id="je" placeholder="Email address" class="form-input">
+      <input type="text" id="ju" placeholder="University / Institution" class="form-input">
+      <button class="btn-submit" onclick="joinSuccess()">Join the Platform</button>
+    </div>
+    <div id="join-success" style="display:none;text-align:center;padding:1.5rem 0">
+      <div style="font-size:3rem">✅</div>
+      <h4>Welcome to EcoTech Youth!</h4>
+      <p>You're now part of Rwanda's green economy movement.</p>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="jobs.html">Green Jobs</a>
+    <a href="learn.html">Learn</a>
+    <a href="community.html">Community</a>
+    <a href="pitch.html">Pitch Deck</a>
+    <a href="enterprise.html">Business Model</a>
+    <a href="submit.html">Submit Project</a>
+  </div>
+  <p class="footer-copy">🌿 EcoTech Youth · Built for MKU × University of Westminster × ACE Creative Economy Hackathon · 27 November 2024</p>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+function joinSuccess(){
+  if(!document.getElementById('jn').value||!document.getElementById('je').value){showToast('Please fill in name and email');return;}
+  document.getElementById('join-form').style.display='none';
+  document.getElementById('join-success').style.display='block';
+}
+</script>
+</body>
+</html>
